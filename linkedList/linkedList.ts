@@ -18,6 +18,7 @@ interface ILinkedList<T> {
   isEmpty: () => boolean;
   push: (value: T) => void;
   toString: () => string;
+  pop: () => T | null;
 }
 
 class LinkedList<T> implements ILinkedList<T> {
@@ -56,11 +57,35 @@ class LinkedList<T> implements ILinkedList<T> {
     }
     return result;
   };
+
+  pop: () => T | null = () => {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const value = this.tail!.value;
+    if (this.head === this.tail) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      let node = this.head;
+      while (node!.next !== this.tail) {
+        node = node!.next;
+      }
+      node!.next = null;
+      this.tail = node;
+    }
+    this.size--;
+    return value;
+  };
 }
 
 const linkedList = new LinkedList();
 
 linkedList.push("A");
 linkedList.push("B");
+linkedList.push("C");
+linkedList.push("D");
+
+linkedList.pop();
 
 console.log(linkedList.toString());
