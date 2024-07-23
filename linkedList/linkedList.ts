@@ -12,3 +12,25 @@ class LinkedListNode<T> {
     this.next = null;
   }
 }
+
+interface LinkedList<T> {
+  head: LinkedListNode<T> | null;
+  tail: LinkedListNode<T> | null;
+  length: number;
+
+  isEmpty(): boolean;
+}
+
+class LinkedList<T> implements LinkedList<T> {
+  head: LinkedListNode<T> | null;
+  tail: LinkedListNode<T> | null;
+  length: number;
+
+  isEmpty() {
+    return this.length === 0;
+  }
+}
+
+const linkedList = new LinkedList();
+
+console.log(linkedList.isEmpty());
