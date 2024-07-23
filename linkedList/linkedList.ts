@@ -17,6 +17,7 @@ interface ILinkedList<T> {
 
   isEmpty: () => boolean;
   push: (value: T) => void;
+  toString: () => string;
 }
 
 class LinkedList<T> implements ILinkedList<T> {
@@ -45,6 +46,16 @@ class LinkedList<T> implements ILinkedList<T> {
     }
     this.size++;
   }
+
+  toString: () => string = () => {
+    let result = "";
+    let node = this.head;
+    while (node) {
+      result += node.value;
+      node = node.next;
+    }
+    return result;
+  };
 }
 
 const linkedList = new LinkedList();
@@ -52,4 +63,4 @@ const linkedList = new LinkedList();
 linkedList.push("A");
 linkedList.push("B");
 
-console.log(linkedList);
+console.log(linkedList.toString());
