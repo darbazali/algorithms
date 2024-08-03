@@ -8,3 +8,7 @@
  * @return {boolean} True if the string is a palindrome, false otherwise.
  * Complexity: O(n) time | O(1) space
  */
+
+const isPalindrome = (str: string): boolean => {
+  return false;
+};
