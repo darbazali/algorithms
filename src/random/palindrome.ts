@@ -10,6 +10,10 @@
  */
 
 export const isPalindrome = (str: string): boolean => {
+  if (typeof str !== "string") {
+    throw new Error("Input must be a string");
+  }
+
   let left: number = 0;
   let right: number = str.length - 1;
 
