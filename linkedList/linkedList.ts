@@ -1,36 +1,50 @@
-interface LinkedListNode<T> {
+interface INode<T> {
   value: T;
-  next: LinkedListNode<T> | null;
+  next: INode<T> | null;
 }
 
-class LinkedListNode<T> {
-  value: T;
-  next: LinkedListNode<T> | null;
+interface LinkedList<T> {
+  head: INode<T> | null;
+  tail: INode<T> | null;
+  size: number;
 
+  isEmpty(): boolean;
+  add(value: T): void;
+}
+
+class LinkedListNode<T> implements INode<T> {
+  value: T;
+  next: INode<T> | null;
   constructor(value: T) {
     this.value = value;
     this.next = null;
   }
 }
 
-interface LinkedList<T> {
-  head: LinkedListNode<T> | null;
-  tail: LinkedListNode<T> | null;
-  length: number;
-
-  isEmpty(): boolean;
-}
-
 class LinkedList<T> implements LinkedList<T> {
-  head: LinkedListNode<T> | null;
-  tail: LinkedListNode<T> | null;
-  length: number;
+  head: INode<T> | null;
+  tail: INode<T> | null;
+  size: number;
 
-  isEmpty() {
-    return this.length === 0;
+  isEmpty(): boolean {
+    return this.size === 0;
+  }
+
+  add(value: T): void {
+    const node = new LinkedListNode<T>(value);
+    if (this.isEmpty()) {
+      this.head = node;
+      this.tail = null;
+    } else {
+      this.tail = node;
+      this.tail!.next = null;
+    }
+    this.size++;
   }
 }
 
-const linkedList = new LinkedList();
+const linkedList = new LinkedList<number>();
 
-console.log(linkedList.isEmpty());
+linkedList.add(1);
+
+console.log(linkedList);
