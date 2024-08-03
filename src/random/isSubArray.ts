@@ -6,3 +6,7 @@
  * @return {boolean} True if the subarray exists in the larger array, false otherwise.
  * Complexity: O(n * m) time | O(1) space
  */
+
+export const isSubArray = <T>(arr: T[], sub: T[]): boolean => {
+  return false;
+};
