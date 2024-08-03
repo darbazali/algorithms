@@ -9,6 +9,6 @@
  * Complexity: O(n) time | O(1) space
  */
 
-const isPalindrome = (str: string): boolean => {
+export const isPalindrome = (str: string): boolean => {
   return false;
 };
