@@ -22,9 +22,9 @@ class LinkedListNode<T> implements INode<T> {
 }
 
 class LinkedList<T> implements LinkedList<T> {
-  head: INode<T> | null;
-  tail: INode<T> | null;
-  size: number;
+  head!: INode<T> | null;
+  tail!: INode<T> | null;
+  size!: number;
 
   isEmpty(): boolean {
     return this.size === 0;
