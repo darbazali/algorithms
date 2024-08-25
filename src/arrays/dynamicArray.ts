@@ -10,7 +10,7 @@ interface IDynamicArray {
 }
 
 export class DynamicArray implements IDynamicArray {
-  public data: number[];
+  private data: number[];
   public length: number;
 
   constructor() {
@@ -20,5 +20,10 @@ export class DynamicArray implements IDynamicArray {
 
   isEmpty(): boolean {
     return this.length === 0;
+  }
+
+  add(value: number): void {
+    this.data.push(value);
+    this.length++;
   }
 }
