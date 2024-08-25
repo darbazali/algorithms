@@ -33,4 +33,12 @@ describe("Dynamic Array", () => {
     arr.set(0, 1);
     expect(arr.get(0)).toBe(1);
   });
+
+  test("Should remove an element from array", () => {
+    const arr = new DynamicArray();
+    arr.add(1);
+    arr.remove(0);
+
+    expect(arr.isEmpty()).toBe(true);
+  });
 });
