@@ -44,4 +44,13 @@ export class DynamicArray implements IDynamicArray {
 
     this.data[index] = value;
   }
+
+  remove(index: number): void {
+    if (index < 0 || index >= this.length) {
+      throw new Error("Index is out of bounds");
+    }
+
+    this.data.splice(index, 1);
+    this.length--;
+  }
 }
