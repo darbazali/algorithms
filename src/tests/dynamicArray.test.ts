@@ -26,4 +26,11 @@ describe("Dynamic Array", () => {
 
     expect(arr.get(2)).toBe(3);
   });
+
+  test("Should set arr[0] to be 1", () => {
+    const arr = new DynamicArray();
+    arr.add(3);
+    arr.set(0, 1);
+    expect(arr.get(0)).toBe(1);
+  });
 });
