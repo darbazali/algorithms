@@ -6,4 +6,9 @@ describe("Dynamic Array", () => {
     const arr = new DynamicArray();
     expect(arr.length).toBe(0);
   });
+
+  test("Should return isEmpty() to be true", () => {
+    const arr = new DynamicArray();
+    expect(arr.isEmpty()).toBe(true);
+  });
 });
