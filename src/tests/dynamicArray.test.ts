@@ -11,4 +11,10 @@ describe("Dynamic Array", () => {
     const array = new DynamicArray();
     expect(array.isEmpty()).toBe(true);
   });
+
+  test("should add an element to the array", () => {
+    const array = new DynamicArray();
+    array.add(1);
+    expect(array.get(0)).toBe(1);
+  });
 });

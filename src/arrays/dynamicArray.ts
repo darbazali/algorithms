@@ -20,10 +20,20 @@ export class DynamicArray implements IDynamicArray {
     return this.length === 0;
   }
 
+  add(value: number): void {
+    this.data.push(value);
+    this.length++;
+  }
+
   get(index: number): number {
+    if (this.isEmpty()) {
+      return -1;
+    }
+
     if (index < 0 || index >= this.length) {
       throw new Error("Index out of bounds");
     }
+
     return this.data[index];
   }
 }
