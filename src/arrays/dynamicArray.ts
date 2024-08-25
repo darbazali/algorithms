@@ -10,7 +10,7 @@ interface IDynamicArray {
 }
 
 export class DynamicArray implements IDynamicArray {
-  private data: number[];
+  public data: number[];
   public length: number;
 
   constructor() {
@@ -52,5 +52,10 @@ export class DynamicArray implements IDynamicArray {
 
     this.data.splice(index, 1);
     this.length--;
+  }
+
+  clear(): void {
+    this.data = [];
+    this.length = 0;
   }
 }
