@@ -8,7 +8,7 @@ interface IDynamicArray {
   remove(index: number): void;
 }
 
-class DynamicArray implements IDynamicArray {
+export class DynamicArray implements IDynamicArray {
   public length: number;
   public data: number[];
   constructor() {
@@ -30,4 +30,4 @@ class DynamicArray implements IDynamicArray {
 
 const dynamicArray = new DynamicArray();
 
-console.log(dynamicArray.get(1));
+// console.log(dynamicArray.get(1));
