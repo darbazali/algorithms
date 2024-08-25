@@ -17,4 +17,8 @@ export class DynamicArray implements IDynamicArray {
     this.data = [];
     this.length = 0;
   }
+
+  isEmpty(): boolean {
+    return this.length === 0;
+  }
 }
