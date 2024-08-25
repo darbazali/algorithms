@@ -37,4 +37,11 @@ describe("Dynamic Array", () => {
     array.set(0, 2);
     expect(array.get(0)).toBe(2);
   });
+
+  test("should remove an element from the array", () => {
+    const array = new DynamicArray();
+    array.add(1);
+    array.remove(0);
+    expect(array.isEmpty()).toBe(true);
+  });
 });
