@@ -26,4 +26,14 @@ export class DynamicArray implements IDynamicArray {
     this.data.push(value);
     this.length++;
   }
+
+  get(index: number): number {
+    if (this.isEmpty()) return -1;
+
+    if (index < 0 || index >= this.length) {
+      throw new Error("Index is out of bounds");
+    }
+
+    return this.data[index];
+  }
 }
