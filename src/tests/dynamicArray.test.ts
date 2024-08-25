@@ -30,4 +30,11 @@ describe("Dynamic Array", () => {
     array.clear();
     expect(array.isEmpty()).toBe(true);
   });
+
+  test("should set an element in the array", () => {
+    const array = new DynamicArray();
+    array.add(1);
+    array.set(0, 2);
+    expect(array.get(0)).toBe(2);
+  });
 });

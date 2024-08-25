@@ -42,6 +42,14 @@ export class DynamicArray implements IDynamicArray {
     this.length = 0;
     this.data = [];
   }
+
+  set(index: number, value: number): void {
+    if (index < 0 || index >= this.length) {
+      throw new Error("Index out of bounds");
+    }
+
+    this.data[index] = value;
+  }
 }
 
 const dynamicArray = new DynamicArray();
