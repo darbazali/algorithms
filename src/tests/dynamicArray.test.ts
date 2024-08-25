@@ -17,4 +17,13 @@ describe("Dynamic Array", () => {
     arr.add(1);
     expect(arr.length).toBe(1);
   });
+
+  test("Should get(index) return and index from array", () => {
+    const arr = new DynamicArray();
+    arr.add(1);
+    arr.add(2);
+    arr.add(3);
+
+    expect(arr.get(2)).toBe(3);
+  });
 });
