@@ -6,6 +6,7 @@ interface IDynamicArray {
   get(index: number): number;
   set(index: number, value: number): void;
   remove(index: number): void;
+  clear(): void;
 }
 
 export class DynamicArray implements IDynamicArray {
@@ -35,6 +36,11 @@ export class DynamicArray implements IDynamicArray {
     }
 
     return this.data[index];
+  }
+
+  clear(): void {
+    this.length = 0;
+    this.data = [];
   }
 }
 

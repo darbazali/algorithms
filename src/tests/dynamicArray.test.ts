@@ -23,4 +23,11 @@ describe("Dynamic Array", () => {
     array.add(1);
     expect(array.get(0)).toBe(1);
   });
+
+  test("should remove all the elements from the array", () => {
+    const array = new DynamicArray();
+    array.add(1);
+    array.clear();
+    expect(array.isEmpty()).toBe(true);
+  });
 });
