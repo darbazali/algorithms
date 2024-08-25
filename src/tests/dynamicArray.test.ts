@@ -41,4 +41,12 @@ describe("Dynamic Array", () => {
 
     expect(arr.isEmpty()).toBe(true);
   });
+
+  test("Should clear the array", () => {
+    const arr = new DynamicArray();
+    arr.add(1);
+    arr.add(2);
+    arr.clear();
+    expect(arr.isEmpty()).toBe(true);
+  });
 });
