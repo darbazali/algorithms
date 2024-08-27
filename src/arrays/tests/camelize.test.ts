@@ -13,4 +13,8 @@ describe("camelize", () => {
   test("camelize('-webkit-transition') should return 'WebkitTransition'", () => {
     expect(camelize("-webkit-transition")).toBe("WebkitTransition");
   });
+
+  test("camelize('list-style-image') should return 'listStyleImage'", () => {
+    expect(camelize("list-style-image")).toBe("listStyleImage");
+  });
 });
