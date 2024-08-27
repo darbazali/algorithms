@@ -6,6 +6,6 @@ camelize('background-color') => 'backgroundColor'
 camelize('-webkit-transition') => 'WebkitTransition'
 */
 
-const camelize = (str: string): string => {
+export const camelize = (str: string): string => {
   return str;
 };
