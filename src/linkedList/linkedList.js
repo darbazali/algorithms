@@ -15,13 +15,20 @@ a.next = b;
 b.next = c;
 c.next = d;
 
-const printLinkedList = (head) => {
-  let current = head;
+// const printLinkedList = (head) => {
+//   let current = head;
 
-  while (current !== null) {
-    console.log(current.value);
-    current = current.next;
-  }
+//   while (current !== null) {
+//     console.log(current.value);
+//     current = current.next;
+//   }
+// };
+
+const printLinkedList = (head) => {
+  if (head === null) return;
+
+  console.log(head.value);
+  printLinkedList(head.next);
 };
 
 printLinkedList(a);
