@@ -14,3 +14,14 @@ const d = new Node("D");
 a.next = b;
 b.next = c;
 c.next = d;
+
+const printLinkedList = (head) => {
+  let current = head;
+
+  while (current !== null) {
+    console.log(current.value);
+    current = current.next;
+  }
+};
+
+printLinkedList(a);
