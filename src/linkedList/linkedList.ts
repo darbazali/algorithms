@@ -28,16 +28,10 @@ const fillValues = (head: ILinkedListNode<string> | null, values: string[]): voi
   fillValues(head.next, values)
 }
 
-// const fillValues = (head: ILinkedListNode<string>, values: string[]): void => {
-//   if (head === null) return;
-//   values.push(head.value);
-//   fillValues(head.next!, values);
-// };
+const getValues = (head: ILinkedListNode<string> | null): string[] => {
+  const values: string[] = []
+  fillValues(head, values)
+  return values
+}
 
-// const getValues = (head: ILinkedListNode<string>): string[] => {
-//   const values: string[] = [];
-//   fillValues(head, values);
-//   return values;
-// };
-
-// console.log(getValues(a))
+console.log(getValues(a))
