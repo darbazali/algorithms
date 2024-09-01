@@ -73,15 +73,13 @@ const findNode = (head: ILinkedListNode<number> | null, target: number): boolean
   return false
 }
 
-// const findNodeRecursively = (
-//   head: ILinkedListNode<number> | null,
-//   target: ILinkedListNode<number>,
-// ): boolean => {
-//   if (head === null) return false
-//   if (head === target) return true
-//   findNodeRecursively(head.next, target)
+const findNodeRecursively = (
+  head: ILinkedListNode<number> | null,
+  target: number,
+): boolean => {
+  if (head === null) return false
+  if (head.value === target) return true
+  return findNodeRecursively(head.next, target)
+}
 
-//   return false
-// }
-
-console.log(findNode(one, 5))
+console.log(findNodeRecursively(one, 4))
