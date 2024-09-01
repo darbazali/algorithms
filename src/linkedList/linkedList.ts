@@ -14,5 +14,12 @@ class LNodeClass<T> implements LNodeInterface<T> {
 }
 
 const a = new LNodeClass<string>("A");
+const b = new LNodeClass<string>("B");
+const c = new LNodeClass<string>("C");
+const d = new LNodeClass<string>("D");
+
+a.next = b;
+b.next = c;
+c.next = d;
 
 console.log(a);
