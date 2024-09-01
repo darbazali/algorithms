@@ -1,14 +1,14 @@
 interface LNodeInterface<T> {
-  head: T;
+  value: T;
   next: LNodeInterface<T> | null;
 }
 
 class LNodeClass<T> implements LNodeInterface<T> {
-  head: T;
+  value: T;
   next: LNodeInterface<T> | null;
 
-  constructor(head: T) {
-    this.head = head;
+  constructor(value: T) {
+    this.value = value;
     this.next = null;
   }
 }
@@ -22,4 +22,12 @@ a.next = b;
 b.next = c;
 c.next = d;
 
-console.log(a);
+const printValues = (head: LNodeInterface<string>): void => {
+  let current = head;
+  while (current !== null) {
+    console.log(current.value);
+    current = current.next!;
+  }
+};
+
+printValues(a);
