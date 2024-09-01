@@ -22,16 +22,28 @@ a.next = b;
 b.next = c;
 c.next = d;
 
-const fillValues = (head: ILinkedListNode<string>, values: string[]): void => {
-  if (head === null) return;
-  values.push(head.value);
-  fillValues(head.next!, values);
-};
-
 const getValues = (head: ILinkedListNode<string>): string[] => {
   const values: string[] = [];
-  fillValues(head, values);
+
+  let current = head;
+  while (current !== null) {
+    values.push(current.value);
+    current = current.next!;
+  }
+
   return values;
 };
+
+// const fillValues = (head: ILinkedListNode<string>, values: string[]): void => {
+//   if (head === null) return;
+//   values.push(head.value);
+//   fillValues(head.next!, values);
+// };
+
+// const getValues = (head: ILinkedListNode<string>): string[] => {
+//   const values: string[] = [];
+//   fillValues(head, values);
+//   return values;
+// };
 
 console.log(getValues(a));
