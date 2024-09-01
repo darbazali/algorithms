@@ -24,3 +24,10 @@ class LinkedListNode<T> implements ILinkedListNode<T> {
     this.next = null;
   }
 }
+
+const a = new LinkedListNode<string>("A");
+const b = new LinkedListNode<string>("B");
+const c = new LinkedListNode<string>("C");
+const d = new LinkedListNode<string>("D");
+
+console.log(a, b, c, d);
