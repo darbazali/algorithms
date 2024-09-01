@@ -17,7 +17,7 @@ interface ILinkedListNode<T> {
 
 class LinkedListNode<T> implements ILinkedListNode<T> {
   public value: T;
-  public next: null;
+  public next: ILinkedListNode<T> | null;
 
   constructor(value: T) {
     this.value = value;
@@ -30,4 +30,8 @@ const b = new LinkedListNode<string>("B");
 const c = new LinkedListNode<string>("C");
 const d = new LinkedListNode<string>("D");
 
-console.log(a, b, c, d);
+a.next = b;
+b.next = c;
+c.next = d;
+
+console.log(a);
