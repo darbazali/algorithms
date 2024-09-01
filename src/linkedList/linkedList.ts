@@ -22,20 +22,6 @@ a.next = b;
 b.next = c;
 c.next = d;
 
-const printValues = (head: LNodeInterface<string>): void => {
-  let current = head;
-  while (current !== null) {
-    console.log(current.value);
-    current = current.next!;
-  }
-};
-
-const printValuesRecursively = (head: LNodeInterface<string>): void => {
-  if (head === null) return;
-  console.log(head.value);
-  printValuesRecursively(head.next!);
-};
-
 const fillValues = (head: LNodeInterface<string>, values: string[]): void => {
   if (head === null) return;
   values.push(head.value);
