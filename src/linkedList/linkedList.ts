@@ -9,3 +9,8 @@
 //   fillValues(head, values);
 //   return values;
 // };
+
+interface LinkedListNode<T> {
+  value: T;
+  next: LinkedListNode<T> | null;
+}
