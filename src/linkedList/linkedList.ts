@@ -10,7 +10,17 @@
 //   return values;
 // };
 
-interface LinkedListNode<T> {
+interface ILinkedListNode<T> {
   value: T;
-  next: LinkedListNode<T> | null;
+  next: ILinkedListNode<T> | null;
+}
+
+class LinkedListNode<T> implements ILinkedListNode<T> {
+  public value: T;
+  public next: null;
+
+  constructor(value: T) {
+    this.value = value;
+    this.next = null;
+  }
 }
