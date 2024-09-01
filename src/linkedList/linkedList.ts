@@ -34,4 +34,15 @@ const getValues = (head: ILinkedListNode<string> | null): string[] => {
   return values
 }
 
-console.log(getValues(a))
+/* =========================================================== */
+
+const one = new LinkedListNode<number>(1)
+const tow = new LinkedListNode<number>(2)
+const three = new LinkedListNode<number>(3)
+const four = new LinkedListNode<number>(4)
+
+one.next = tow
+tow.next = three
+three.next = four
+
+console.log(one)
