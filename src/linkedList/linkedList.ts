@@ -45,4 +45,15 @@ one.next = tow
 tow.next = three
 three.next = four
 
-console.log(one)
+const sumValues = (head: ILinkedListNode<number> | null): number => {
+  let sum = 0
+  let current = head
+  while (current !== null) {
+    sum += current.value
+    current = current.next
+  }
+
+  return sum
+}
+
+console.log(sumValues(one))
