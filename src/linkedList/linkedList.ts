@@ -56,4 +56,9 @@ const sumValues = (head: ILinkedListNode<number> | null): number => {
   return sum
 }
 
-console.log(sumValues(one))
+const sumListRecursively = (head: ILinkedListNode<number> | null): number => {
+  if (head === null) return 0
+  return head.value + sumListRecursively(head.next)
+}
+
+console.log(sumListRecursively(one))
