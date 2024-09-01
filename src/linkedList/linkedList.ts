@@ -82,4 +82,20 @@ const findNodeRecursively = (
   return findNodeRecursively(head.next, target)
 }
 
-console.log(findNodeRecursively(one, 4))
+type Traverse = (
+  head: ILinkedListNode<number> | null,
+  callback: (node: ILinkedListNode<number>) => void,
+) => void
+
+const traverseLinkedList: Traverse = (head, callback) => {
+  let current = head
+
+  while (current !== null) {
+    callback(current)
+
+    // move to next node
+    current = current.next
+  }
+}
+
+traverseLinkedList(one, (node) => console.log(node.value))
