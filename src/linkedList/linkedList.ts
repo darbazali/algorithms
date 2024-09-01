@@ -30,4 +30,10 @@ const printValues = (head: LNodeInterface<string>): void => {
   }
 };
 
-printValues(a);
+const printValuesRecursively = (head: LNodeInterface<string>): void => {
+  if (head === null) return;
+  console.log(head.value);
+  printValuesRecursively(head.next!);
+};
+
+printValuesRecursively(a);
