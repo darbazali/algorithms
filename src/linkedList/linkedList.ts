@@ -36,4 +36,16 @@ const printValuesRecursively = (head: LNodeInterface<string>): void => {
   printValuesRecursively(head.next!);
 };
 
-printValuesRecursively(a);
+const getValues = (head: LNodeInterface<string>): string[] => {
+  const values: string[] = [];
+
+  let current = head;
+  while (current !== null) {
+    values.push(current.value);
+    current = current.next!;
+  }
+
+  return values;
+};
+
+console.log(getValues(a));
