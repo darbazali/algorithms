@@ -40,6 +40,7 @@ const one = new LinkedListNode<number>(1)
 const tow = new LinkedListNode<number>(2)
 const three = new LinkedListNode<number>(3)
 const four = new LinkedListNode<number>(4)
+const five = new LinkedListNode<number>(5)
 
 one.next = tow
 tow.next = three
@@ -61,4 +62,17 @@ const sumListRecursively = (head: ILinkedListNode<number> | null): number => {
   return head.value + sumListRecursively(head.next)
 }
 
-console.log(sumListRecursively(one))
+const findNode = (
+  head: ILinkedListNode<number> | null,
+  target: ILinkedListNode<number>,
+): boolean => {
+  let current = head
+  while (current !== null) {
+    if (current === target) return true
+    current = current.next
+  }
+
+  return false
+}
+
+console.log(findNode(one, five))
