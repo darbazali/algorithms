@@ -62,17 +62,26 @@ const sumListRecursively = (head: ILinkedListNode<number> | null): number => {
   return head.value + sumListRecursively(head.next)
 }
 
-const findNode = (
-  head: ILinkedListNode<number> | null,
-  target: ILinkedListNode<number>,
-): boolean => {
+const findNode = (head: ILinkedListNode<number> | null, target: number): boolean => {
   let current = head
+
   while (current !== null) {
-    if (current === target) return true
+    if (current.value === target) return true
     current = current.next
   }
 
   return false
 }
 
-console.log(findNode(one, five))
+// const findNodeRecursively = (
+//   head: ILinkedListNode<number> | null,
+//   target: ILinkedListNode<number>,
+// ): boolean => {
+//   if (head === null) return false
+//   if (head === target) return true
+//   findNodeRecursively(head.next, target)
+
+//   return false
+// }
+
+console.log(findNode(one, 5))
