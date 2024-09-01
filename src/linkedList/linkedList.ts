@@ -1,50 +1,18 @@
-interface INode<T> {
-  value: T;
-  next: INode<T> | null;
+interface LNodeInterface<T> {
+  head: T;
+  next: LNodeInterface<T> | null;
 }
 
-interface LinkedList<T> {
-  head: INode<T> | null;
-  tail: INode<T> | null;
-  size: number;
+class LNodeClass<T> implements LNodeInterface<T> {
+  head: T;
+  next: LNodeInterface<T> | null;
 
-  isEmpty(): boolean;
-  add(value: T): void;
-}
-
-class LinkedListNode<T> implements INode<T> {
-  value: T;
-  next: INode<T> | null;
-  constructor(value: T) {
-    this.value = value;
+  constructor(head: T) {
+    this.head = head;
     this.next = null;
   }
 }
 
-class LinkedList<T> implements LinkedList<T> {
-  head!: INode<T> | null;
-  tail!: INode<T> | null;
-  size!: number;
+const a = new LNodeClass<string>("A");
 
-  isEmpty(): boolean {
-    return this.size === 0;
-  }
-
-  add(value: T): void {
-    const node = new LinkedListNode<T>(value);
-    if (this.isEmpty()) {
-      this.head = node;
-      this.tail = null;
-    } else {
-      this.tail = node;
-      this.tail!.next = null;
-    }
-    this.size++;
-  }
-}
-
-const linkedList = new LinkedList<number>();
-
-linkedList.add(1);
-
-console.log(linkedList);
+console.log(a);
