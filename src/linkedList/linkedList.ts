@@ -137,4 +137,14 @@ const reverseList = <T>(head: ILinkedListNode<T> | null): ILinkedListNode<T> | n
   return prev
 }
 
-console.log(reverseList(a))
+const reverseListRecursively = <T>(
+  head: ILinkedListNode<T> | null,
+  prev: ILinkedListNode<T> | null = null,
+): ILinkedListNode<T> | null => {
+  if (head === null) return prev
+  const next = head.next
+  head.next = prev
+  return reverseListRecursively(next, head)
+}
+
+console.log(reverseListRecursively(a))
