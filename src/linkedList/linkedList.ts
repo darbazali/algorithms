@@ -98,7 +98,7 @@ const traverseLinkedList: Traverse = (head, callback) => {
   }
 }
 
-const getNodeValue = <T>(head: ILinkedListNode<T> | null, index: number): T | -1 => {
+const getNodeValue = <T>(head: ILinkedListNode<T> | null, index: number): T | null => {
   let count = 0
   let current = head
 
@@ -110,8 +110,16 @@ const getNodeValue = <T>(head: ILinkedListNode<T> | null, index: number): T | -1
     }
   }
 
-  return -1
+  return null
 }
 
-console.log(getNodeValue(a, 2))
-console.log(getNodeValue(one, 5))
+const getNodeValueRecursively = <T>(
+  head: ILinkedListNode<T> | null,
+  index: number,
+): T | null => {
+  if (head === null) return null
+  if (index === 0) return head.value
+  return getNodeValueRecursively(head.next, index - 1)
+}
+
+console.log(getNodeValueRecursively(a, 0))
