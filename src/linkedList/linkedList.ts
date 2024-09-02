@@ -98,4 +98,20 @@ const traverseLinkedList: Traverse = (head, callback) => {
   }
 }
 
-traverseLinkedList(one, (node) => console.log(node.value))
+const getNodeValue = <T>(head: ILinkedListNode<T> | null, index: number): T | -1 => {
+  let count = 0
+  let current = head
+
+  while (current !== null) {
+    if (count === index) return current.value
+    else {
+      count++
+      current = current.next
+    }
+  }
+
+  return -1
+}
+
+console.log(getNodeValue(a, 2))
+console.log(getNodeValue(one, 5))
