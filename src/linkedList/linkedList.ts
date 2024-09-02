@@ -121,4 +121,20 @@ const getNodeValueRecursively = <T>(
   return getNodeValueRecursively(head.next, index - 1)
 }
 
-console.log(getNodeValueRecursively(a, 0))
+const reverseList = <T>(head: ILinkedListNode<T> | null): ILinkedListNode<T> | null => {
+  if (head === null) return null
+
+  let current = head
+  let prev = null
+
+  while (current !== null) {
+    const next = current.next
+    current.next = prev
+    prev = current
+    current = next!
+  }
+
+  return prev
+}
+
+console.log(reverseList(a))
