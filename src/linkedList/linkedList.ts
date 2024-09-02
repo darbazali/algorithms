@@ -104,10 +104,9 @@ const getNodeValue = <T>(head: ILinkedListNode<T> | null, index: number): T | nu
 
   while (current !== null) {
     if (count === index) return current.value
-    else {
-      count++
-      current = current.next
-    }
+
+    count += 1
+    current = current.next
   }
 
   return null
