@@ -153,7 +153,7 @@ const reverseListRecursively = <T>(
   return reverseListRecursively(next, head)
 }
 
-const zipperList = <T>(
+const zipperLists = <T>(
   head1: ILinkedListNode<T>,
   head2: ILinkedListNode<T>,
 ): ILinkedListNode<T> => {
@@ -181,4 +181,21 @@ const zipperList = <T>(
   return head1
 }
 
-traverseLinkedList(zipperList(one, five), (node) => console.log(node.value))
+const zipperListsRecursively = <T>(
+  head1: ILinkedListNode<T>,
+  head2: ILinkedListNode<T>,
+): ILinkedListNode<T> | null => {
+  if (head1 === null && head2 === null) return null
+  if (head1 === null) return head2
+  if (head2 === null) return head1
+
+  const next1 = head1.next
+  const next2 = head2.next
+
+  head1.next = head2
+  head2.next = zipperListsRecursively(next1!, next2!)
+
+  return head1
+}
+
+traverseLinkedList(zipperListsRecursively(one, five), (node) => console.log(node.value))
