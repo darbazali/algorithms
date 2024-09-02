@@ -40,11 +40,17 @@ const one = new LinkedListNode<number>(1)
 const tow = new LinkedListNode<number>(2)
 const three = new LinkedListNode<number>(3)
 const four = new LinkedListNode<number>(4)
+
 const five = new LinkedListNode<number>(5)
+const six = new LinkedListNode<number>(6)
+const seven = new LinkedListNode<number>(7)
 
 one.next = tow
 tow.next = three
 three.next = four
+
+five.next = six
+six.next = seven
 
 const sumValues = (head: ILinkedListNode<number> | null): number => {
   let sum = 0
@@ -147,4 +153,32 @@ const reverseListRecursively = <T>(
   return reverseListRecursively(next, head)
 }
 
-console.log(reverseListRecursively(a))
+const zipperList = <T>(
+  head1: ILinkedListNode<T>,
+  head2: ILinkedListNode<T>,
+): ILinkedListNode<T> => {
+  let tail = head1
+  let current1 = head1.next
+  let current2 = head2
+  let count = 0
+
+  while (current1 !== null && current2 !== null) {
+    if (count % 2 === 0) {
+      tail.next = current2
+      current2 = current2.next!
+    } else {
+      tail.next = current1
+      current1 = current1.next
+    }
+
+    tail = tail.next
+    count += 1
+  }
+
+  if (current1 !== null) tail.next = current1
+  if (current2 !== null) tail.next = current2
+
+  return head1
+}
+
+traverseLinkedList(zipperList(one, five), (node) => console.log(node.value))
