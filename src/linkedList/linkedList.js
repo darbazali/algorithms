@@ -24,6 +24,14 @@ class LinkedList {
 
     current.next = new Node(value)
   }
+
+  print() {
+    let current = this.head
+    while (current !== null) {
+      console.log(current.value)
+      current = current.next
+    }
+  }
 }
 
 const list = new LinkedList()
@@ -31,4 +39,4 @@ list.append("a")
 list.append("b")
 list.append("c")
 
-console.log(list.head)
+list.print()
