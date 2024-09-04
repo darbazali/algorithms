@@ -47,6 +47,10 @@ class LinkedList {
   }
 
   delete(target) {
+    if (this.head.value === target) {
+      return this.head.next
+    }
+
     let current = this.head
     let prev = null
 
@@ -57,6 +61,8 @@ class LinkedList {
       prev = current
       current = current.next
     }
+
+    return this.head
   }
 }
 
@@ -69,6 +75,6 @@ list.append("d")
 
 list.print()
 console.log("--------------")
-list.delete("d")
+list.delete("c")
 
 list.print()
