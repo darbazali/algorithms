@@ -46,6 +46,25 @@ class LinkedList {
     }
     return false
   }
+
+  delete(target) {
+    if (this.head.value === target) {
+      return this.head.next
+    }
+
+    let current = this.head
+    let prev = null
+
+    while (current !== null) {
+      if (current.value === target) {
+        prev.next = current.next
+      }
+      prev = current
+      current = current.next
+    }
+
+    return this.head
+  }
 }
 
 const list = new LinkedList()
@@ -55,38 +74,6 @@ list.append("c")
 
 list.print()
 
-console.log(list.contains("a")) // true
-console.log(list.contains("d")) // false
+list.delete("b")
 
-//   delete(target) {
-//     if (this.head.value === target) {
-//       return this.head.next
-//     }
-
-//     let current = this.head
-//     let prev = null
-
-//     while (current !== null) {
-//       if (current.value === target) {
-//         prev.next = current.next
-//       }
-//       prev = current
-//       current = current.next
-//     }
-
-//     return this.head
-//   }
-// }
-
-// const list = new LinkedList()
-
-// list.append("a")
-// list.append("b")
-// list.append("c")
-// list.append("d")
-
-// list.print()
-// console.log("--------------")
-// list.delete("c")
-
-// list.print()
+list.print()
