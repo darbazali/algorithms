@@ -26,13 +26,25 @@ class LinkedList {
     // when reached the end, append the value to the current.next
     current.next = new Node(value)
   }
+
+  print() {
+    let str = ""
+    let current = this.head
+    while (current !== null) {
+      str += `[${current.value}] -> `
+      current = current.next
+    }
+
+    console.log(str)
+  }
 }
 
 const list = new LinkedList()
 list.append("a")
 list.append("b")
 list.append("c")
-console.log(list.head)
+
+list.print()
 
 //   print() {
 //     let str = ""
