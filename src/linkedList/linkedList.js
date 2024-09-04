@@ -1,5 +1,3 @@
-// TODO: implement contains method to ls
-
 class Node {
   constructor(value) {
     this.value = value
@@ -48,14 +46,3 @@ class LinkedList {
     return false
   }
 }
-
-const list = new LinkedList()
-
-list.append("a")
-list.append("b")
-list.append("c")
-
-list.print()
-
-console.log(list.contains("a"))
-console.log(list.contains("d"))
