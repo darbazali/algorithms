@@ -1,4 +1,3 @@
-// TODO: implement append method to ls
 // TODO: implement print method to ls
 // TODO: implement contains method to ls
 
@@ -27,6 +26,18 @@ class LinkedList {
 
     current.next = new Node(value)
   }
+
+  print() {
+    let str = ""
+    let current = this.head
+
+    while (current !== null) {
+      str += `[${current.value}] -> `
+      current = current.next
+    }
+
+    console.log(`${str} ${current}`)
+  }
 }
 
 const list = new LinkedList()
@@ -34,3 +45,5 @@ const list = new LinkedList()
 list.append("a")
 list.append("b")
 list.append("c")
+
+list.print()
