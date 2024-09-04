@@ -5,76 +5,83 @@ class Node {
   }
 }
 
-class LinkedList {
-  constructor() {
-    this.head = null
-  }
+// class Node {
+//   constructor(value) {
+//     this.value = value
+//     this.next = null
+//   }
+// }
 
-  append(value) {
-    if (this.head === null) {
-      this.head = new Node(value)
-      return
-    }
+// class LinkedList {
+//   constructor() {
+//     this.head = null
+//   }
 
-    let current = this.head
-    while (current.next !== null) {
-      current = current.next
-    }
+//   append(value) {
+//     if (this.head === null) {
+//       this.head = new Node(value)
+//       return
+//     }
 
-    current.next = new Node(value)
-  }
+//     let current = this.head
+//     while (current.next !== null) {
+//       current = current.next
+//     }
 
-  print() {
-    let str = ""
-    let current = this.head
+//     current.next = new Node(value)
+//   }
 
-    while (current !== null) {
-      str += `[${current.value}] -> `
-      current = current.next
-    }
+//   print() {
+//     let str = ""
+//     let current = this.head
 
-    console.log(`${str} ${current}`)
-  }
+//     while (current !== null) {
+//       str += `[${current.value}] -> `
+//       current = current.next
+//     }
 
-  contains(target) {
-    let current = this.head
-    while (current !== null) {
-      if (current.value === target) return true
-      current = current.next
-    }
+//     console.log(`${str} ${current}`)
+//   }
 
-    return false
-  }
+//   contains(target) {
+//     let current = this.head
+//     while (current !== null) {
+//       if (current.value === target) return true
+//       current = current.next
+//     }
 
-  delete(target) {
-    if (this.head.value === target) {
-      return this.head.next
-    }
+//     return false
+//   }
 
-    let current = this.head
-    let prev = null
+//   delete(target) {
+//     if (this.head.value === target) {
+//       return this.head.next
+//     }
 
-    while (current !== null) {
-      if (current.value === target) {
-        prev.next = current.next
-      }
-      prev = current
-      current = current.next
-    }
+//     let current = this.head
+//     let prev = null
 
-    return this.head
-  }
-}
+//     while (current !== null) {
+//       if (current.value === target) {
+//         prev.next = current.next
+//       }
+//       prev = current
+//       current = current.next
+//     }
 
-const list = new LinkedList()
+//     return this.head
+//   }
+// }
 
-list.append("a")
-list.append("b")
-list.append("c")
-list.append("d")
+// const list = new LinkedList()
 
-list.print()
-console.log("--------------")
-list.delete("c")
+// list.append("a")
+// list.append("b")
+// list.append("c")
+// list.append("d")
 
-list.print()
+// list.print()
+// console.log("--------------")
+// list.delete("c")
+
+// list.print()
