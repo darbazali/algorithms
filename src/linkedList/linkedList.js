@@ -37,6 +37,15 @@ class LinkedList {
 
     console.log(str)
   }
+
+  contains(target) {
+    let current = this.head
+    while (current !== null) {
+      if (current.value === target) return true
+      current = current.next
+    }
+    return false
+  }
 }
 
 const list = new LinkedList()
@@ -46,27 +55,8 @@ list.append("c")
 
 list.print()
 
-//   print() {
-//     let str = ""
-//     let current = this.head
-
-//     while (current !== null) {
-//       str += `[${current.value}] -> `
-//       current = current.next
-//     }
-
-//     console.log(`${str} ${current}`)
-//   }
-
-//   contains(target) {
-//     let current = this.head
-//     while (current !== null) {
-//       if (current.value === target) return true
-//       current = current.next
-//     }
-
-//     return false
-//   }
+console.log(list.contains("a")) // true
+console.log(list.contains("d")) // false
 
 //   delete(target) {
 //     if (this.head.value === target) {
