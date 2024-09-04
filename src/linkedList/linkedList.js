@@ -45,4 +45,30 @@ class LinkedList {
 
     return false
   }
+
+  delete(target) {
+    let current = this.head
+    let prev = null
+
+    while (current !== null) {
+      if (current.value === target) {
+        prev.next = current.next
+      }
+      prev = current
+      current = current.next
+    }
+  }
 }
+
+const list = new LinkedList()
+
+list.append("a")
+list.append("b")
+list.append("c")
+list.append("d")
+
+list.print()
+console.log("--------------")
+list.delete("d")
+
+list.print()
