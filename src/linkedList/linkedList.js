@@ -11,16 +11,19 @@ class LinkedList {
   }
 
   append(value) {
+    // if the list is empty
     if (this.head === null) {
       this.head = new Node(value)
       return
     }
 
+    // else, loop through until the end of the list
     let current = this.head
     while (current.next !== null) {
       current = current.next
     }
 
+    // when reached the end, append the value to the current.next
     current.next = new Node(value)
   }
 }
