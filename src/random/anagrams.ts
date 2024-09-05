@@ -12,14 +12,26 @@ const createHashFromString = (str: string): Record<string, number> => {
   return chars
 }
 
-const anagrams = (s1: string, s2: string): void => {
-  //   if (s1 === s2) return true
+const anagrams = (s1: string, s2: string): boolean => {
+  if (s1 === s2) return true
 
-  const chars1: Record<string, number> = createHashFromString(s1)
-  const chars2: Record<string, number> = createHashFromString(s2)
+  const chars: Record<string, number> = createHashFromString(s1)
 
-  console.log(chars1)
-  console.log(chars2)
+  for (let char of s2) {
+    if (char in chars) {
+      chars[char] -= 1
+    } else {
+      return false
+    }
+  }
+
+  for (let char in chars) {
+    if (chars[char] !== 0) {
+      return false
+    }
+  }
+
+  return true
 }
 
-anagrams("restful", "fluster") // -> true
+console.log(anagrams("restful", "fluster")) // -> true
