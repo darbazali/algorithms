@@ -1,4 +1,4 @@
-const isPrime = (n: number): boolean => {
+export const isPrime = (n: number): boolean => {
   if (n < 2) return false
 
   for (let i = 2; i <= Math.sqrt(n); i++) {
