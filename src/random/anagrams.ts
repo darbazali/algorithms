@@ -1,21 +1,9 @@
-const createHashFromString = (str: string): Record<string, number> => {
-  const chars: Record<string, number> = {}
+import { createCharCounterMap } from "../lib"
 
-  for (let char of str) {
-    if (!(char in chars)) {
-      chars[char] = 0
-    }
-
-    chars[char] += 1
-  }
-
-  return chars
-}
-
-const anagrams = (s1: string, s2: string): boolean => {
+export const anagrams = (s1: string, s2: string): boolean => {
   if (s1 === s2) return true
 
-  const chars: Record<string, number> = createHashFromString(s1)
+  const chars = createCharCounterMap(s1)
 
   for (let char of s2) {
     if (char in chars) {
@@ -33,5 +21,3 @@ const anagrams = (s1: string, s2: string): boolean => {
 
   return true
 }
-
-console.log(anagrams("restful", "fluster")) // -> true
