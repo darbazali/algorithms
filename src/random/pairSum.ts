@@ -9,3 +9,17 @@ export const pairSum = (numbers: number[], target: number): number[] => {
 
   return []
 }
+
+export const pairSum2 = (numbers: number[], targetSum: number): number[] => {
+  const previousNums: Record<number, number> = {}
+
+  for (let i = 0; i < numbers.length; i += 1) {
+    const num = numbers[i]
+    const complement = targetSum - num
+    if (complement in previousNums) return [i, previousNums[complement]]
+
+    previousNums[num] = i
+  }
+
+  return []
+}
