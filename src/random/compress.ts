@@ -7,7 +7,7 @@ Single character occurrences should not be changed.
 */
 
 export const compress = (str: string): string => {
-  let result = ""
+  const result = []
 
   let i = 0
   let j = 0
@@ -18,14 +18,14 @@ export const compress = (str: string): string => {
     } else {
       const num = j - i
       if (num === 1) {
-        result += str[i]
+        result.push(str[i])
       } else {
-        result += num + str[i]
+        result.push(String(num), str[i])
       }
 
       i = j
     }
   }
 
-  return result
+  return result.join("")
 }
