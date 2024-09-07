@@ -8,14 +8,14 @@ export const uncompress = (str: string): string => {
 
   while (j < str.length) {
     if (isNumber(str[j])) {
-      j++
+      j += 1
     } else {
       const num: number = Number(str.slice(i, j))
       result += str[j].repeat(num)
-    }
 
-    j += 1
-    i = j
+      j += 1
+      i = j
+    }
   }
 
   return result
