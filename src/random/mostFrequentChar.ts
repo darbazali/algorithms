@@ -1,11 +1,18 @@
-import { createCharCounterMap } from "../lib"
-
 export const mostFrequentChar = (str: string): string => {
-  const chars = createCharCounterMap(str)
+  if (str.length < 2) return str
+
+  const count: Record<string, number> = {}
+
+  for (let char of str) {
+    if (!(char in count)) {
+      count[char] = 0
+    }
+    count[char] += 1
+  }
 
   let best = ""
-  for (let char of str) {
-    if (best === "" || chars[char] > chars[best]) {
+  for (let char in count) {
+    if (best === "" || count[char] > count[best]) {
       best = char
     }
   }
