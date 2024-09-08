@@ -1,7 +1,7 @@
 const isNumber = (s: string): boolean => "0123456789".includes(s)
 
 export const uncompress = (str: string): string => {
-  let result = ""
+  const result: string[] = []
 
   let i = 0
   let j = 0
@@ -11,12 +11,12 @@ export const uncompress = (str: string): string => {
       j += 1
     } else {
       const num = Number(str.slice(i, j))
-      result += str[j].repeat(num)
+      result.push(str[j].repeat(num))
 
       j += 1
       i = j
     }
   }
 
-  return result
+  return result.join("")
 }
