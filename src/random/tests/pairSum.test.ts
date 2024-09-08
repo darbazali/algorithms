@@ -1,5 +1,5 @@
 import { describe, test, expect } from "bun:test"
-import { pairSum } from "../pairSum"
+import { pairSum, pairSumBruteForce } from "../pairSum"
 
 describe("pairSum", () => {
   test("pairSum should return an array of numbers", () => {
@@ -28,5 +28,39 @@ describe("pairSum", () => {
 
   test("pairSum should return correct indices for target sum 12", () => {
     expect(pairSum([6, 4, 2, 8], 12)).toEqual([1, 3])
+  })
+})
+
+describe("pairSumBruteForce", () => {
+  test("should return an array", () => {
+    expect(Array.isArray(pairSumBruteForce([1, 2, 3], 3))).toBe(true)
+  })
+
+  test("should return correct indices for a valid pair", () => {
+    expect(pairSumBruteForce([1, 2, 3], 3)).toEqual([0, 1])
+  })
+
+  test("should return an empty array if no pair sums to the target", () => {
+    expect(pairSumBruteForce([1, 2, 3], 7)).toEqual([])
+  })
+
+  test("should handle negative numbers correctly", () => {
+    expect(pairSumBruteForce([-1, -2, -3, 4], 2)).toEqual([1, 3])
+  })
+
+  test("should handle multiple pairs correctly and return the first pair found", () => {
+    expect(pairSumBruteForce([1, 2, 3, 4, 5], 5)).toEqual([0, 3])
+  })
+
+  test("should handle an empty array", () => {
+    expect(pairSumBruteForce([], 5)).toEqual([])
+  })
+
+  test("should handle an array with one element", () => {
+    expect(pairSumBruteForce([5], 5)).toEqual([])
+  })
+
+  test("should handle an array with duplicate elements", () => {
+    expect(pairSumBruteForce([1, 1, 1, 1], 2)).toEqual([0, 1])
   })
 })
