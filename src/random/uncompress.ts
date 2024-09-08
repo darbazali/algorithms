@@ -10,7 +10,7 @@ export const uncompress = (str: string): string => {
     if (isNumber(str[j])) {
       j += 1
     } else {
-      const num: number = Number(str.slice(i, j))
+      const num = Number(str.slice(i, j))
       result += str[j].repeat(num)
 
       j += 1
