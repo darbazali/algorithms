@@ -53,4 +53,16 @@ one.next = two
 two.next = three
 three.next = four
 
-console.log(one)
+const sumList = (head) => {
+  let sum = 0
+  let current = head
+
+  while (current !== null) {
+    sum += current.value
+    current = current.next
+  }
+
+  return sum
+}
+
+console.log(sumList(one))
