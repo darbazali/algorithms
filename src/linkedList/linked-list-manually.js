@@ -44,4 +44,13 @@ const getLinkedListValues = (head) => {
   return values
 }
 
-console.log(getLinkedListValues(a))
+const one = new Node(1)
+const two = new Node(2)
+const three = new Node(3)
+const four = new Node(4)
+
+one.next = two
+two.next = three
+three.next = four
+
+console.log(one)
