@@ -32,4 +32,16 @@ const printLinkedListRecursive = (head) => {
   printLinkedListRecursive(head.next)
 }
 
-printLinkedListRecursive(a)
+const getLinkedListValues = (head) => {
+  const values = []
+  let current = head
+
+  while (current !== null) {
+    values.push(current.value)
+    current = current.next
+  }
+
+  return values
+}
+
+console.log(getLinkedListValues(a))
