@@ -14,6 +14,8 @@ a.next = b
 b.next = c
 c.next = d
 
+// A -> B -> C -> D -> NULL
+
 const printLinkedList = (head) => {
   let current = head
 
@@ -23,4 +25,11 @@ const printLinkedList = (head) => {
   }
 }
 
-printLinkedList(a)
+const printLinkedListRecursive = (head) => {
+  if (head === null) return
+
+  console.log(head.value)
+  printLinkedListRecursive(head.next)
+}
+
+printLinkedListRecursive(a)
