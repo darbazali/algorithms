@@ -14,4 +14,13 @@ a.next = b
 b.next = c
 c.next = d
 
-console.log(a)
+const printLinkedList = (head) => {
+  let current = head
+
+  while (current !== null) {
+    console.log(current.value)
+    current = current.next
+  }
+}
+
+printLinkedList(a)
