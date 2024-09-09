@@ -65,4 +65,17 @@ const sumList = (head) => {
   return sum
 }
 
-console.log(sumList(one))
+const linkedListFind = (head, target) => {
+  let current = head
+
+  while (current !== null) {
+    if (current.value === target) {
+      return true
+    }
+    current = current.next
+  }
+
+  return false
+}
+
+console.log(linkedListFind(a, "C"))
