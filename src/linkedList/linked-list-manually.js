@@ -178,3 +178,31 @@ const mergeLists = (head1, head2) => {
 
   return dummyHead.next
 }
+
+/* 
+The function should return a boolean indicating whether or not the linked list contains exactly one unique value.
+
+const a = new Node(7);
+const b = new Node(7);
+const c = new Node(7);
+
+a.next = b;
+b.next = c;
+
+// 7 -> 7 -> 7
+
+isUniValueList(a); // true
+*/
+
+const isUniValueList = (head) => {
+  let current = head
+
+  while (current.next !== null) {
+    const next = current.next
+    if (current.value !== next.value) {
+      return false
+    }
+    current = current.next
+  }
+  return true
+}
