@@ -122,6 +122,13 @@ const reverseLinkedList = (head) => {
   return prev
 }
 
+const reverseLinkedListRecursive = (head, prev = null) => {
+  if (head === null) return prev
+  const next = head.next
+  head.next = prev
+  return reverseLinkedListRecursive(next, head)
+}
+
 linkedListToString(a)
-const reversedList = reverseLinkedList(a)
+const reversedList = reverseLinkedListRecursive(a)
 linkedListToString(reversedList)
