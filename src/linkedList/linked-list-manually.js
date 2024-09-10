@@ -291,5 +291,12 @@ const createLinkedList = (values = []) => {
   return dummyHead.next
 }
 
-const newList = createLinkedList([1, 2, 3, 4, 5])
+const createLinkedListRecursive = (values, i = 0) => {
+  if (values.length === i) return null
+  const head = new Node(values[i])
+  head.next = createLinkedListRecursive(values, i + 1)
+  return head
+}
+
+const newList = createLinkedListRecursive([1, 2, 3, 4, 5])
 printLinkedList(newList)
