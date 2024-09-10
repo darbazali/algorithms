@@ -5,27 +5,27 @@ class Node {
   }
 }
 
-// const a = new Node("A")
-// const b = new Node("B")
-// const c = new Node("C")
-// const d = new Node("D")
-
-// a.next = b
-// b.next = c
-// c.next = d
-
-const a = new Node(2)
-const b = new Node(8)
-const c = new Node(3)
-const d = new Node(-1)
-const e = new Node(7)
+const a = new Node("A")
+const b = new Node("B")
+const c = new Node("C")
+const d = new Node("D")
 
 a.next = b
 b.next = c
 c.next = d
-d.next = e
 
-// 2 -> 8 -> 3 -> -1 -> 7
+// const a = new Node(2)
+// const b = new Node(8)
+// const c = new Node(3)
+// const d = new Node(-1)
+// const e = new Node(7)
+
+// a.next = b
+// b.next = c
+// c.next = d
+// d.next = e
+
+// // 2 -> 8 -> 3 -> -1 -> 7
 
 const printLinkedList = (head) => {
   let current = head
@@ -64,4 +64,17 @@ const sumList = (head) => {
   }
 
   return sum
+}
+
+const linkedListFind = (head, target) => {
+  let current = head
+
+  while (current !== null) {
+    if (current.value === target) {
+      return true
+    }
+    current = current.next
+  }
+
+  return false
 }
