@@ -5,14 +5,27 @@ class Node {
   }
 }
 
-const a = new Node("A")
-const b = new Node("B")
-const c = new Node("C")
-const d = new Node("D")
+// const a = new Node("A")
+// const b = new Node("B")
+// const c = new Node("C")
+// const d = new Node("D")
+
+// a.next = b
+// b.next = c
+// c.next = d
+
+const a = new Node(2)
+const b = new Node(8)
+const c = new Node(3)
+const d = new Node(-1)
+const e = new Node(7)
 
 a.next = b
 b.next = c
 c.next = d
+d.next = e
+
+// 2 -> 8 -> 3 -> -1 -> 7
 
 const printLinkedList = (head) => {
   let current = head
@@ -41,4 +54,14 @@ const getLinkedListValues = (head) => {
   return values
 }
 
-console.log(getLinkedListValues(a))
+const sumList = (head) => {
+  let sum = 0
+  let current = head
+
+  while (current !== null) {
+    sum += current.value
+    current = current.next
+  }
+
+  return sum
+}
