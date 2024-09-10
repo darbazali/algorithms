@@ -278,3 +278,18 @@ const insertNode = (head, value, index) => {
 
   return head
 }
+
+const createLinkedList = (values = []) => {
+  const dummyHead = new Node(null)
+  let tail = dummyHead
+
+  for (let value of values) {
+    tail.next = new Node(value)
+    tail = tail.next
+  }
+
+  return dummyHead.next
+}
+
+const newList = createLinkedList([1, 2, 3, 4, 5])
+printLinkedList(newList)
