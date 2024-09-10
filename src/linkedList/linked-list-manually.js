@@ -206,3 +206,29 @@ const isUniValueList = (head) => {
   }
   return true
 }
+
+const longestStreak = (head) => {
+  if (head === null) return 0
+
+  let currentNode = head
+  let currentStreak = 0
+  let maxStreak = 0
+  let prev = head.value
+
+  while (currentNode !== null) {
+    if (currentNode.value === prev) {
+      currentStreak += 1
+    } else {
+      currentStreak = 1
+    }
+
+    if (currentStreak > maxStreak) {
+      maxStreak = currentStreak
+    }
+
+    prev = currentNode.value
+    currentNode = currentNode.next
+  }
+
+  return maxStreak
+}
