@@ -232,3 +232,23 @@ const longestStreak = (head) => {
 
   return maxStreak
 }
+
+const removeNode = (head, targetVal) => {
+  if (head.value === targetVal) return head.next
+
+  let current = head
+  let prev = null
+
+  while (current !== null) {
+    if (current.value === targetVal) {
+      // skip current Node
+      prev.next = current.next
+      break
+    }
+
+    prev = current
+    current = current.next
+  }
+
+  return head
+}
