@@ -36,6 +36,19 @@ const printLinkedList = (head) => {
   }
 }
 
+const linkedListToString = (head) => {
+  let current = head
+  let str = ""
+
+  while (current !== null) {
+    str += current.value + " -> "
+    current = current.next
+  }
+
+  console.log(str + "NULL")
+  return str + "NULL"
+}
+
 const printLinkedListRecursive = (head) => {
   if (head === null) return
   console.log(head.value)
@@ -108,3 +121,7 @@ const reverseLinkedList = (head) => {
 
   return prev
 }
+
+linkedListToString(a)
+const reversedList = reverseLinkedList(a)
+linkedListToString(reversedList)
