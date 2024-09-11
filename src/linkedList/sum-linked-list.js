@@ -37,7 +37,7 @@ const sumLinkedList = (head) => {
 
 export const sumLinkedListRecursive = (head) => {
   if (head === null) return 0
-  return head.value + sumLinkedListRecursive(head.nest)
+  return head.value + sumLinkedListRecursive(head.next)
 }
 
 export default sumLinkedList
