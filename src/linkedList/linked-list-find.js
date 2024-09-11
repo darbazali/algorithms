@@ -31,4 +31,10 @@ const linkedListFind = (head, target) => {
   return false
 }
 
+export const linkedListFindRecursive = (head, target) => {
+  if (head === null) return false
+  if (head.value === target) return true
+  return linkedListFindRecursive(head.next, target)
+}
+
 export default linkedListFind
