@@ -34,6 +34,18 @@ class LinkedList {
 
     console.log(str + " NULL")
   }
+
+  contains = (value) => {
+    let current = this.head
+    while (current !== null) {
+      if (current.value === value) {
+        return true
+      }
+      current = current.next
+    }
+
+    return false
+  }
 }
 
 const list = new LinkedList()
@@ -43,3 +55,6 @@ list.append("b")
 list.append("c")
 
 list.print()
+
+console.log(list.contains("a")) // -> true
+console.log(list.contains("d")) // -> false
