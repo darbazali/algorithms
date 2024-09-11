@@ -58,6 +58,12 @@ class LinkedList {
 
     return values
   }
+
+  getValuesRecursive = (head = this.head, values = []) => {
+    if (head === null) return values
+    values.push(head.value)
+    return this.getValuesRecursive(head.next, values)
+  }
 }
 
 const list = new LinkedList()
@@ -66,4 +72,4 @@ list.append("a")
 list.append("b")
 list.append("c")
 
-console.log(list.getValues())
+console.log(list.getValuesRecursive())
