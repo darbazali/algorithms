@@ -35,4 +35,9 @@ const sumLinkedList = (head) => {
   return sum
 }
 
+export const sumLinkedListRecursive = (head) => {
+  if (head === null) return 0
+  return head.value + sumLinkedListRecursive(head.nest)
+}
+
 export default sumLinkedList
