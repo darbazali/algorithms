@@ -30,3 +30,11 @@ const isUnivalueList = (head) => {
 
   return true
 }
+
+export const isUnivalueListRecursive = (head) => {
+  if (head.next === null) return true
+  if (head.value !== head.next.value) return false
+  return isUnivalueListRecursive(head.next)
+}
+
+export default isUnivalueList
