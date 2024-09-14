@@ -19,9 +19,10 @@ getLinkedListValues(a); // -> [ 'a', 'b', 'c', 'd' ]
 
 */
 
+import createLinkedList from "./create-linked-list"
 import type { INode } from "./linked-list-node"
 
-const getLinkedListValues = <T>(head: INode<T>): T[] => {
+const getLinkedListValues = <T>(head: INode<T> | null): T[] => {
   const values: T[] = []
   let current = head
 
@@ -39,5 +40,8 @@ const getLinkedListValuesRecursive = <T>(head: INode<T>, values: T[] = []): T[] 
   getLinkedListValuesRecursive(head.next!, values)
   return values
 }
+
+const list = createLinkedList<string>(["a", "b", "c", "d"])
+console.log(getLinkedListValues(list))
 
 export default getLinkedListValues
