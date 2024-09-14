@@ -21,10 +21,6 @@ linkedListFind(a, "c"); // true
 
 */
 
-import createLinkedList from "./create-linked-list.js"
-
-const list = createLinkedList(["a", "b", "c", "d"])
-
 const linkedListFind = (head, target) => {
   let current = head
 
@@ -39,7 +35,12 @@ const linkedListFind = (head, target) => {
   return false
 }
 
-export default linkedListFind
+export const linkedListFindRecursive = (head, target) => {
+  if (head === null) return false
+  if (head.value === target) {
+    return true
+  }
+  return linkedListFindRecursive(head.next, target)
+}
 
-console.log(linkedListFind(list, "a")) // -> true
-console.log(linkedListFind(list, "e")) // -> false
+export default linkedListFind
