@@ -30,3 +30,24 @@ e.next = f;
 removeNode(a, "c"); => a -> b -> d -> e -> f
 
 */
+
+const removeNode = (head, targetValue) => {
+  if (head.value === targetValue) return head.next
+
+  let current = head
+  let prev = null
+
+  while (current !== null) {
+    if (current.value === targetValue) {
+      prev.next = current.next
+      break
+    }
+
+    prev = current
+    current = current.next
+  }
+
+  return head
+}
+
+export default removeNode
