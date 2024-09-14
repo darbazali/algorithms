@@ -33,4 +33,10 @@ const getLinkedListValues = (head) => {
   return values
 }
 
+export const getLinkedListValuesRecursive = (head, values = []) => {
+  if (head === null) return values
+  values.push(head.value)
+  return getLinkedListValuesRecursive(head.next, values)
+}
+
 export default getLinkedListValues
