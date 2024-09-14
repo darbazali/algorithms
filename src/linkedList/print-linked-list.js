@@ -29,4 +29,14 @@ const printLinkedList = (head) => {
   console.log(str + "NULL")
 }
 
+export const printLinkedListRecursive = (head, str = "") => {
+  if (head === null) {
+    console.log(str + "NULL")
+    return
+  }
+
+  str += head.value + " -> "
+  printLinkedListRecursive(head.next, str)
+}
+
 export default printLinkedList
