@@ -19,3 +19,14 @@ b.next = c;
 isUnivalueList(a); // true
 
 */
+
+const isUnivalueList = (head) => {
+  let current = head
+
+  while (current !== null) {
+    if (current.value !== head.value) return false
+    current = current.next
+  }
+
+  return true
+}
