@@ -25,3 +25,26 @@ e.next = f;
 reverseList(a); // f -> e -> d -> c -> b -> a
 
 */
+
+import createLinkedList from "./create-linked-list.js"
+import printLinkedList from "./print-linked-list.js"
+
+const list = createLinkedList(["a", "b", "c", "d", "e", "f"])
+
+const reverseLinkedList = (head) => {
+  let prev = null
+  let current = head
+
+  while (current !== null) {
+    const next = current.next
+    current.next = prev
+    prev = current
+    current = next
+  }
+
+  return prev
+}
+
+const reversed = reverseLinkedList(list)
+
+printLinkedList(reversed) // f -> e -> d -> c -> b -> a -> NULL
