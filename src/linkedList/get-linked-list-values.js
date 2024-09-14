@@ -20,3 +20,17 @@ a -> b -> c -> d
 getLinkedListValues(a); // -> [ 'a', 'b', 'c', 'd' ]
 
 */
+
+const getLinkedListValues = (head) => {
+  const values = []
+  let current = head
+
+  while (current !== null) {
+    values.push(current.value)
+    current = current.next
+  }
+
+  return values
+}
+
+export default getLinkedListValues
