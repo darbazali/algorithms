@@ -20,3 +20,26 @@ a -> b -> c -> d
 linkedListFind(a, "c"); // true
 
 */
+
+import createLinkedList from "./create-linked-list.js"
+
+const list = createLinkedList(["a", "b", "c", "d"])
+
+const linkedListFind = (head, target) => {
+  let current = head
+
+  while (current !== null) {
+    if (current.value === target) {
+      return true
+    }
+
+    current = current.next
+  }
+
+  return false
+}
+
+export default linkedListFind
+
+console.log(linkedListFind(list, "a")) // -> true
+console.log(linkedListFind(list, "e")) // -> false
