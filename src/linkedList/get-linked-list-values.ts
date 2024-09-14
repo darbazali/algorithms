@@ -33,4 +33,11 @@ const getLinkedListValues = <T>(head: INode<T>): T[] => {
   return values
 }
 
+const getLinkedListValuesRecursive = <T>(head: INode<T>, values: T[] = []): T[] => {
+  if (head === null) return values
+  values.push(head.value)
+  getLinkedListValuesRecursive(head.next!, values)
+  return values
+}
+
 export default getLinkedListValues
