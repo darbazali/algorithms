@@ -31,9 +31,6 @@ zipperLists(a, x);
 
 */
 
-import createLinkedList from "./create-linked-list.js"
-import printLinkedList from "./print-linked-list.js"
-
 const zipperLists = (head1, head2) => {
   let tail = head1
   let current1 = head1.next
@@ -59,9 +56,16 @@ const zipperLists = (head1, head2) => {
   return head1
 }
 
-const list1 = createLinkedList(["a", "b", "c"]) // a -> b -> c
-const list2 = createLinkedList(["x", "y", "z"]) // x -> y -> z
+export const zipperListsRecursive = (head1, head2) => {
+  if (head1 === null && head2 === null) return null
+  if (head1 === null) return head2
+  if (head2 === null) return head1
 
-const zippedLists = zipperLists(list1, list2)
+  const next1 = head1.next
+  const next2 = head2.next
+  head1.next = head2
+  head2.next = zipperListsRecursive(next1, next2)
+  return head1
+}
 
-printLinkedList(zippedLists) // should return a -> x -> b -> y -> c -> z -> NULL
+export default zipperLists
