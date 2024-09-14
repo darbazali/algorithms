@@ -23,10 +23,6 @@ getNodeValue(a, 2); // 'c'
 
 */
 
-import createLinkedList from "./create-linked-list.js"
-
-const list = createLinkedList(["a", "b", "c", "d"])
-
 const getNodeValue = (head, target) => {
   let count = 0
   let current = head
@@ -43,5 +39,12 @@ const getNodeValue = (head, target) => {
   return null
 }
 
-console.log(getNodeValue(list, 2)) // -> 'c'
-console.log(getNodeValue(list, 4)) // -> null
+export const getNodeValueRecursive = (head, target, count = 0) => {
+  if (head === null) return null
+  if (count === target) {
+    return head.value
+  }
+  return getNodeValueRecursive(head.next, target, count + 1)
+}
+
+export default getNodeValue
