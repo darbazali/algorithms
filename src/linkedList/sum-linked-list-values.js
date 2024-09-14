@@ -23,8 +23,6 @@ sumList(a); // 19
 
 */
 
-import createLinkedList from "./create-linked-list.js"
-
 const sumLinkedList = (head) => {
   let sum = 0
   let current = head
@@ -40,5 +38,10 @@ const sumLinkedList = (head) => {
   return sum
 }
 
-const list = createLinkedList([2, 8, 3, -1, 7]) // -> 19
-console.log(sumLinkedList(list))
+export const sumLinkedListRecursive = (head, sum = 0) => {
+  if (head === null) return sum
+  sum += head.value
+  return sumLinkedListRecursive(head.next, sum)
+}
+
+export default sumLinkedList
