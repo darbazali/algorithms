@@ -31,3 +31,19 @@ c.right = f;
 treeMinValue(a); // -> -2
 
 */
+
+const treeMinValue = (root) => {
+  let minValue = root.value
+  const stack = [root]
+
+  while (stack.length > 0) {
+    const node = stack.pop()
+    if (node.value < minValue) minValue = node.value
+    if (node.right !== null) stack.push(node.right)
+    if (node.left !== null) stack.push(node.left)
+  }
+
+  return minValue
+}
+
+export default treeMinValue
