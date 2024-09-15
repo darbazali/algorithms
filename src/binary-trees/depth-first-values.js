@@ -29,8 +29,6 @@ depthFirstValues(a); -> ['a', 'b', 'd', 'e', 'c', 'f']
 
 */
 
-import Node from "./binary-tree-node.js"
-
 const depthFirstValues = (root) => {
   if (root === null) return []
 
@@ -48,17 +46,13 @@ const depthFirstValues = (root) => {
   return result
 }
 
-const a = new Node("a")
-const b = new Node("b")
-const c = new Node("c")
-const d = new Node("d")
-const e = new Node("e")
-const f = new Node("f")
+export const depthFirstValuesRecursive = (root) => {
+  if (root === null) return []
 
-a.left = b
-a.right = c
-b.left = d
-b.right = e
-c.right = f
+  const leftValues = depthFirstValuesRecursive(root.left)
+  const rightValues = depthFirstValuesRecursive(root.right)
 
-console.log(depthFirstValues(b))
+  return [root.value, ...leftValues, ...rightValues]
+}
+
+export default depthFirstValues
