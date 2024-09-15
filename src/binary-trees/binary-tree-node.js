@@ -26,3 +26,5 @@ c.right = f
 //        b   c
 //       / \   \
 //      d   e   f
+
+export default Node
