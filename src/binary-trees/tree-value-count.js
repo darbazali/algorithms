@@ -28,3 +28,22 @@ c.right = f;
 treeValueCount(a,  6); // -> 3
 
 */
+
+const treeValueCount = (root, target) => {
+  if (root === null) return 0
+
+  const stack = [root]
+  let count = 0
+
+  while (stack.length > 0) {
+    const node = stack.pop()
+    if (node.value === target) count += 1
+
+    if (node.right !== null) stack.push(node.right)
+    if (node.left !== null) stack.push(node.left)
+  }
+
+  return count
+}
+
+export default treeValueCount
