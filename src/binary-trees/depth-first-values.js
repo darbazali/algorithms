@@ -19,11 +19,11 @@ b.left = d;
 b.right = e;
 c.right = f;
 
-//      a
-//    /   \
-//   b     c
-//  / \     \
-// d   e     f
+      a
+    /   \
+   b     c
+  / \     \
+ d   e     f
 
 depthFirstValues(a); -> ['a', 'b', 'd', 'e', 'c', 'f']
 
@@ -41,8 +41,8 @@ const depthFirstValues = (root) => {
     const current = stack.pop()
     result.push(current.value)
 
-    if (current.right) stack.push(current.right)
-    if (current.left) stack.push(current.left)
+    if (current.right !== null) stack.push(current.right)
+    if (current.left !== null) stack.push(current.left)
   }
 
   return result
