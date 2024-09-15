@@ -52,7 +52,7 @@ const treeSum = (root) => {
 }
 
 // breadth-first version
-const treeSumBreadthFirst = (root) => {
+export const treeSumBreadthFirst = (root) => {
   if (root === null) return 0
 
   let sum = 0
@@ -69,6 +69,12 @@ const treeSumBreadthFirst = (root) => {
   return sum
 }
 
+// recursive version
+export const treeSumRecursive = (root) => {
+  if (root === null) return 0
+  return root.value + treeSumRecursive(root.left) + treeSumRecursive(root.right)
+}
+
 const a = new Node(3)
 const b = new Node(11)
 const c = new Node(4)
@@ -82,4 +88,6 @@ b.left = d
 b.right = e
 c.right = f
 
-console.log(treeSum(a)) // -> 21
+console.log(treeSumRecursive(a)) // -> 21
+
+export default treeSum
