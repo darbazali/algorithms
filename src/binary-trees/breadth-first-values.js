@@ -28,3 +28,22 @@ c.right = f;
 breadthFirstValues(a); -> ['a', 'b', 'c', 'd', 'e', 'f']
 
 */
+
+const breadthFirstValues = (root) => {
+  if (root === null) return []
+
+  const values = []
+  const queue = [root]
+
+  while (queue.length > 0) {
+    const current = queue.pop()
+    values.push(current.value)
+
+    if (current.left !== null) queue.unshift(current.left)
+    if (current.right !== null) queue.unshift(current.right)
+  }
+
+  return values
+}
+
+export default breadthFirstValues
