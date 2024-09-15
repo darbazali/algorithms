@@ -29,3 +29,20 @@ c.right = f;
 treeIncludes(a, "e"); // -> true
 
 */
+
+const treeIncludes = (root, target) => {
+  if (root === null) return false
+
+  const stack = [root]
+
+  while (stack.length > 0) {
+    const node = stack.pop()
+    if (node.value === target) return true
+    if (node.right !== null) stack.push(node.right)
+    if (node.left !== null) stack.push(node.left)
+  }
+
+  return false
+}
+
+export default treeIncludes
