@@ -51,6 +51,24 @@ const treeSum = (root) => {
   return sum
 }
 
+// breadth-first version
+const treeSumBreadthFirst = (root) => {
+  if (root === null) return 0
+
+  let sum = 0
+  const queue = [root]
+
+  while (queue.length > 0) {
+    const current = queue.shift()
+    sum += current.value
+
+    if (current.right !== null) queue.push(current.right)
+    if (current.left !== null) queue.push(current.left)
+  }
+
+  return sum
+}
+
 const a = new Node(3)
 const b = new Node(11)
 const c = new Node(4)
