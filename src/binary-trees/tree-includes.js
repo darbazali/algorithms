@@ -45,4 +45,13 @@ const treeIncludes = (root, target) => {
   return false
 }
 
+export const treeIncludesRecursive = (root, target) => {
+  if (root === null) return false
+  if (root.val === target) return true
+
+  return (
+    treeIncludesRecursive(root.left, target) || treeIncludesRecursive(root.right, target)
+  )
+}
+
 export default treeIncludes
