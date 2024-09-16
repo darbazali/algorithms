@@ -33,3 +33,25 @@ c.right = f;
 pathFinder(a, 'e'); // -> [ 'a', 'b', 'e' ]
 
 */
+
+const pathFinder = (root, target) => {
+  if (root === null) return null
+  if (root.value === target) return [root.value]
+
+  const leftPath = pathFinder(root.left, target)
+  const rightPath = pathFinder(root.right, target)
+
+  if (leftPath !== null) {
+    // target found on left
+    return [root.value, ...leftPath]
+  }
+
+  if (rightPath !== null) {
+    // target found on right
+    return [root.value, ...rightPath]
+  }
+
+  return null
+}
+
+export default pathFinder
