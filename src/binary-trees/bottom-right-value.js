@@ -32,3 +32,19 @@ c.right = f;
 bottomRightValue(a); // -> 1
 
 */
+
+const bottomRightValue = (root) => {
+  const queue = [root]
+  let current = root // could be null, as well
+
+  while (queue.length > 0) {
+    current = queue.pop()
+
+    if (current.left !== null) queue.unshift(current.left)
+    if (current.right !== null) queue.unshift(current.right)
+  }
+
+  return current.value
+}
+
+export default bottomRightValue
