@@ -32,28 +32,40 @@ c.right = f;
 
 pathFinder(a, 'e'); // -> [ 'a', 'b', 'e' ]
 
+@complexity:
+------------
+Time: O(n)
+Space: O(n)
 */
 
 import Node from "./binary-tree-node.js"
 
-const pathFinder = (root, target) => {
+const pathFinderHelper = (root, target) => {
   if (root === null) return null
   if (root.value === target) return [root.value]
 
-  const leftPath = pathFinder(root.left, target)
-  const rightPath = pathFinder(root.right, target)
+  const leftPath = pathFinderHelper(root.left, target)
+  const rightPath = pathFinderHelper(root.right, target)
 
   if (leftPath !== null) {
     // target found on left
-    return [root.value, ...leftPath]
+    leftPath.push(root.value)
+    return leftPath
   }
 
   if (rightPath !== null) {
     // target found on right
-    return [root.value, ...rightPath]
+    rightPath.push(root.value)
+    return rightPath
   }
 
   return null
+}
+
+const pathFinder = (root, target) => {
+  const result = pathFinderHelper(root, target)
+  if (result === null) return null
+  return result.reverse()
 }
 
 const root = new Node(0)
