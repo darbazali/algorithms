@@ -46,4 +46,14 @@ const treeValueCount = (root, target) => {
   return count
 }
 
+const treeValueCountRecursive = (root, target) => {
+  if (root === null) return 0
+  const match = root.value === target ? 1 : 0
+  return (
+    match +
+    treeValueCountRecursive(root.left, target) +
+    treeValueCountRecursive(root.right, target)
+  )
+}
+
 export default treeValueCount
