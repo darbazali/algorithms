@@ -35,6 +35,7 @@ maxPathSum(a); // -> 18
 
 const maxPathSum = (root) => {
   if (root === null) return -Infinity
+  // if leaf node, then count node value itself.
   if (root.left === null && root.right === null) return root.value
   return root.value + Math.max(maxPathSum(root.left), maxPathSum(root.right))
 }
