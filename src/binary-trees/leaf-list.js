@@ -32,3 +32,22 @@ leafList(a); // -> [ 'd', 'e', 'f' ]
 */
 
 const isLeaf = (node) => node.right === null && node.left === null
+
+const leafList = (root) => {
+  if (root === null) return []
+
+  const leaves = []
+  const stack = [root]
+
+  while (stack.length > 0) {
+    const node = stack.pop()
+    if (isLeaf(node)) {
+      leaves.push(node.value)
+    }
+
+    if (node.right !== null) stack.push(node.right)
+    if (node.left !== null) stack.push(node.left)
+  }
+
+  return leaves
+}
