@@ -51,3 +51,14 @@ const leafList = (root) => {
 
   return leaves
 }
+
+const leafListRecursive = (root, leaves = []) => {
+  if (root === null) return leaves
+
+  if (isLeaf(root)) leaves.push(root.value)
+
+  leafListRecursive(root.left, leaves)
+  leafListRecursive(root.right, leaves)
+
+  return leaves
+}
