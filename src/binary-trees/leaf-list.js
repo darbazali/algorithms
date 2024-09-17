@@ -30,3 +30,5 @@ c.right = f;
 leafList(a); // -> [ 'd', 'e', 'f' ] 
 
 */
+
+const isLeaf = (node) => node.right === null && node.left === null
