@@ -32,6 +32,18 @@ class Graph {
       )
     }
   }
+
+  removeNode(node) {
+    if (this.adjacencyList.has(node)) {
+      // Remove edges associated with this node
+      this.adjacencyList.get(node).forEach((neighbor) => {
+        this.removeEdge(node, neighbor)
+      })
+
+      // Remove the node itself
+      this.adjacencyList.delete(node)
+    }
+  }
 }
 
 const graph = new Graph()
@@ -42,6 +54,6 @@ graph.addNode("c")
 graph.addEdge("a", "b")
 graph.addEdge("a", "c")
 
-graph.removeEdge("a", "c")
+graph.removeNode("c")
 
 console.log(graph.adjacencyList)
