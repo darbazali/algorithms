@@ -29,13 +29,16 @@ depthFirstValues(a); -> ['a', 'b', 'd', 'e', 'c', 'f']
 
 */
 
+import Stack from "../stack/stack.js"
+import Node from "./binary-tree-node.js"
+
 const depthFirstValues = (root) => {
   if (root === null) return []
 
   const result = []
-  const stack = [root]
+  const stack = new Stack(root)
 
-  while (stack.length > 0) {
+  while (!stack.isEmpty()) {
     const current = stack.pop()
     result.push(current.value)
 
@@ -54,5 +57,20 @@ export const depthFirstValuesRecursive = (root) => {
 
   return [root.value, ...leftValues, ...rightValues]
 }
+
+const a = new Node("a")
+const b = new Node("b")
+const c = new Node("c")
+const d = new Node("d")
+const e = new Node("e")
+const f = new Node("f")
+
+a.left = b
+a.right = c
+b.left = d
+b.right = e
+c.right = f
+
+console.log(depthFirstValues(a)) // -> ['a', 'b', 'd', 'e', 'c', 'f']
 
 export default depthFirstValues
