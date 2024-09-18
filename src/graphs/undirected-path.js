@@ -43,6 +43,21 @@ const buildGraph = (edges = []) => {
   return graph
 }
 
+const hasPath = (graph, src, dst, visited) => {
+  if (src === dst) return true
+  if (visited.has(src)) return false
+
+  visited.set(src)
+
+  for (let neighbor in graph[src]) {
+    if (hasPath(graph, neighbor, dst, visited) === true) {
+      return true
+    }
+  }
+
+  return false
+}
+
 /* 
 the graph
 
