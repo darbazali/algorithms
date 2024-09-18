@@ -27,4 +27,12 @@ const depthFirstValues = (graph, source) => {
   return values
 }
 
-console.log(depthFirstValues(graph, "a")) // [ 'a', 'b', 'd', 'f', 'c', 'e' ]
+const depthFirstPrintRecursive = (graph, src) => {
+  console.log(src)
+  const neighbors = graph[src]
+  for (let neighbor of neighbors) {
+    depthFirstPrintRecursive(graph, neighbor)
+  }
+}
+
+depthFirstPrintRecursive(graph, "a")
