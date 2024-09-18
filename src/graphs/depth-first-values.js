@@ -17,10 +17,13 @@ const depthFirstValues = (graph, source) => {
     const current = stack.pop()
     values.push(current)
 
-    for (let neighbor of graph[current]) {
+    const neighbors = graph[current]
+
+    for (let neighbor of neighbors) {
       stack.push(neighbor)
     }
   }
+
   return values
 }
 
