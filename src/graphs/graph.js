@@ -18,6 +18,20 @@ class Graph {
       this.adjacencyList.get(node2).push(node1)
     }
   }
+
+  // Remove an edge between two vertices (nodes)
+  removeEdge = (node1, node2) => {
+    if (this.adjacencyList.has(node1) && this.adjacencyList.has(node2)) {
+      this.adjacencyList.set(
+        node1,
+        this.adjacencyList.get(node1).filter((v) => v !== node2),
+      )
+      this.adjacencyList.set(
+        node2,
+        this.adjacencyList.get(node2).filter((v) => v !== node1),
+      )
+    }
+  }
 }
 
 const graph = new Graph()
@@ -27,5 +41,7 @@ graph.addNode("c")
 
 graph.addEdge("a", "b")
 graph.addEdge("a", "c")
+
+graph.removeEdge("a", "c")
 
 console.log(graph.adjacencyList)
