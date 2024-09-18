@@ -44,6 +44,12 @@ class Graph {
       this.adjacencyList.delete(node)
     }
   }
+
+  display() {
+    for (let [node, edges] of this.adjacencyList.entries()) {
+      console.log(`${node} -> [ ${edges.join(", ")} ]`)
+    }
+  }
 }
 
 const graph = new Graph()
@@ -54,6 +60,4 @@ graph.addNode("c")
 graph.addEdge("a", "b")
 graph.addEdge("a", "c")
 
-graph.removeNode("c")
-
-console.log(graph.adjacencyList)
+graph.display()
