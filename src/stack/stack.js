@@ -9,7 +9,7 @@ class Stack {
 
   pop = () => {
     if (this.isEmpty()) {
-      throw new Error("Stack is empty!")
+      throw new Error("The Stack is empty!")
     }
     return this.items.pop()
   }
