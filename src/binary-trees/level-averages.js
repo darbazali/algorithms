@@ -39,7 +39,30 @@ const calculateAverages = (arr) =>
   })
 
 const levelAveragesHelper = (root) => {
-  return []
+  if (root === null) return []
+
+  const levels = []
+  const stack = [{ node: root, currentLevel: 0 }]
+
+  while (stack.length > 0) {
+    const { node, currentLevel } = stack.pop()
+
+    if (levels.length === currentLevel) {
+      levels[currentLevel] = [node.value]
+    } else {
+      levels[currentLevel].push(node.value)
+    }
+
+    if (node.right !== null) {
+      stack.push({ node: node.right, currentLevel: currentLevel + 1 })
+    }
+
+    if (node.left !== null) {
+      stack.push({ node: node.left, currentLevel: currentLevel + 1 })
+    }
+  }
+
+  return levels
 }
 
 const levelAverages = (root) => {
