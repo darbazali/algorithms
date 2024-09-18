@@ -65,6 +65,21 @@ const treeLevels = (root) => {
   return levels
 }
 
+const treeLevelsRecursive = (root, levels = [], currentLevel = 0) => {
+  if (root === null) return levels
+
+  if (levels.length === currentLevel) {
+    levels[currentLevel] = [root.value]
+  } else {
+    levels[currentLevel].push(root.value)
+  }
+
+  treeLevelsRecursive(root.left, levels, currentLevel + 1)
+  treeLevelsRecursive(root.right, levels, currentLevel + 1)
+
+  return levels
+}
+
 const a = new Node("a")
 const b = new Node("b")
 const c = new Node("c")
@@ -78,4 +93,4 @@ b.left = d
 b.right = e
 c.right = f
 
-console.log(treeLevels(a))
+console.log(treeLevelsRecursive(a))
