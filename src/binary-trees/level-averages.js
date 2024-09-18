@@ -31,3 +31,18 @@ c.right = f;
 levelAverages(a); // -> [ 3, 7.5, 1 ] 
 
 */
+
+const calculateAverages = (arr) =>
+  arr.map((subArray) => {
+    const sum = subArray.reduce((acc, num) => acc + num, 0)
+    return sum / subArray.length
+  })
+
+const levelAveragesHelper = (root) => {
+  return []
+}
+
+const levelAverages = (root) => {
+  const levels = levelAveragesHelper(root)
+  return calculateAverages(levels)
+}
