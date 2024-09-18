@@ -1,22 +1,21 @@
 class Stack {
-  constructor() {
-    this.items = []
+  #items = []
+  constructor(initial) {
+    this.#items = Array.isArray(initial) ? [...initial] : [initial]
   }
 
   push = (item) => {
-    this.items.push(item)
+    this.#items.push(item)
   }
 
   pop = () => {
     if (this.isEmpty()) {
       throw new Error("The Stack is empty!")
     }
-    return this.items.pop()
+    return this.#items.pop()
   }
 
-  isEmpty = () => this.items.length === 0
-
-  // more methods could be added if needed
+  isEmpty = () => this.#items.length === 0
 }
 
 export default Stack
