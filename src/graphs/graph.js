@@ -52,12 +52,4 @@ class Graph {
   }
 }
 
-const graph = new Graph()
-graph.addNode("a")
-graph.addNode("b")
-graph.addNode("c")
-
-graph.addEdge("a", "b")
-graph.addEdge("a", "c")
-
-graph.display()
+export default Graph
