@@ -19,3 +19,14 @@ connectedComponentsCount({
 }); // -> 2
 
 */
+
+const traverse = (graph, current, visited) => {
+  if (visited.has(String(current))) return false
+  visited.add(String(current))
+
+  for (let neighbor of graph[current]) {
+    traverse(graph, neighbor, visited)
+  }
+
+  return true
+}
