@@ -27,8 +27,32 @@ const countComponentSize = (graph, node, visited) => {
   let size = 1
 
   for (let neighbor of graph[node]) {
-    size += countComponentSize(graph, node, visited)
+    size += countComponentSize(graph, neighbor, visited)
   }
 
   return size
 }
+
+const largestComponent = (graph) => {
+  const visited = new Set()
+  let largest = 0
+
+  for (let node in graph) {
+    const size = countComponentSize(graph, node, visited)
+    if (size > largest) largest = size
+  }
+
+  return largest
+}
+
+const largest = largestComponent({
+  0: ["8", "1", "5"],
+  1: ["0"],
+  5: ["0", "8"],
+  8: ["0", "5"],
+  2: ["3", "4"],
+  3: ["2", "4"],
+  4: ["3", "2"],
+})
+
+console.log(largest) // -> 4
