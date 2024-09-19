@@ -41,12 +41,13 @@ const hasPath = (graph, src, dst) => {
   return false
 }
 
-const hasPathRecursive = (graph, src, dst) => {
+const hasPathRecursive = (graph, src, dst, visited = new Set()) => {
   if (src === dst) return true
+  if (visited.has(src)) return false
+  visited.add(src)
 
-  const neighbors = graph[src]
-  for (let neighbor of neighbors) {
-    if (hasPathRecursive(graph, neighbor, dst) === true) {
+  for (let neighbor of graph[src]) {
+    if (hasPathRecursive(graph, neighbor, dst, visited) === true) {
       return true
     }
   }
