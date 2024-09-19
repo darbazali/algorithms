@@ -26,15 +26,19 @@ import Stack from "../stack/stack.js"
 const hasPath = (graph, src, dst) => {
   if (src === dst) return true
 
-  const stack = new Stack(src)
+  const visited = new Set()
 
+  const stack = new Stack(src)
   while (!stack.isEmpty()) {
     const current = stack.pop()
+    visited.add(current)
     if (current === dst) return true
 
     const neighbors = graph[current]
     for (let neighbor of neighbors) {
-      stack.push(neighbor)
+      if (!visited.has(neighbor)) {
+        stack.push(neighbor)
+      }
     }
   }
 
