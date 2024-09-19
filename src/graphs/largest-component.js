@@ -20,6 +20,25 @@ largestComponent({
 
 */
 
+const countComponentSizeDepthFirst = (graph, node, visited) => {
+  const stack = [node]
+  let size = 0
+
+  while (stack.length > 0) {
+    const current = stack.pop()
+
+    for (let neighbor of graph[current]) {
+      if (!visited.has(neighbor)) {
+        size += 1
+        stack.push(neighbor)
+        visited.add(neighbor)
+      }
+    }
+  }
+
+  return size
+}
+
 const countComponentSize = (graph, node, visited) => {
   if (visited.has(node)) return 0
   visited.add(node)
