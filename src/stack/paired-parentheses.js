@@ -13,3 +13,22 @@ You may assume the string contains only alphabetic characters, '(', or ')'.
 pairedParentheses("(david)((abby))"); // -> true
 
 */
+
+const pairedParentheses = (str = "") => {
+  const opener = "("
+  const closer = ")"
+  let count = 0
+
+  for (let char of str) {
+    if (char === opener) count += 1
+    if (char === closer) {
+      if (count === 0) return false
+      count -= 1
+    }
+  }
+
+  return count === 0
+}
+
+console.log(pairedParentheses("(david)((abby))")) // -> true
+console.log(pairedParentheses("(david)((abby)")) // -> false
