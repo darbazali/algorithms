@@ -15,13 +15,11 @@ pairedParentheses("(david)((abby))"); // -> true
 */
 
 const pairedParentheses = (str = "") => {
-  const opener = "("
-  const closer = ")"
   let count = 0
 
   for (let char of str) {
-    if (char === opener) count += 1
-    if (char === closer) {
+    if (char === "(") count += 1
+    if (char === ")") {
       if (count === 0) return false
       count -= 1
     }
