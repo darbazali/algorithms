@@ -24,12 +24,37 @@ minimumIsland(grid); // -> 2
 
 */
 
+const countIslandSize = (grid, r, c, visited) => {
+  const rowInbounds = 0 <= r && r < grid.length
+  const colInbounds = 0 <= c && c < grid[0].length
+  if (!rowInbounds || !colInbounds) return 0
+
+  if (grid[r][c] === "W") return 0
+
+  const pos = r + "," + c
+  if (visited.has(pos)) return 0
+  visited.add(pos)
+
+  let size = 1
+  size += countIslandSize(grid, r - 1, c, visited)
+  size += countIslandSize(grid, r + 1, c, visited)
+  size += countIslandSize(grid, r, c - 1, visited)
+  size += countIslandSize(grid, r, c + 1, visited)
+  return size
+}
+
 const minimumIsland = (grid) => {
+  const visited = new Set()
+  let minimum = Infinity
+
   for (let r = 0; r < grid.length; r++) {
     for (let c = 0; c < grid[0].length; c++) {
-      console.log(r, c, grid[r][c])
+      const size = countIslandSize(grid, r, c, visited)
+      if (size > 0 && size < minimum) minimum = size
     }
   }
+
+  return minimum
 }
 
 const grid = [
@@ -41,4 +66,4 @@ const grid = [
   ["L", "L", "W", "W", "W"],
 ]
 
-minimumIsland(grid) // -> 2
+console.log(minimumIsland(grid)) // -> 2
