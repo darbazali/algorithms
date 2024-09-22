@@ -17,7 +17,9 @@ const depthFirstTraversal = (graph, src) => {
     const current = stack.pop()
     str += current + " "
 
-    for (let neighbor of graph[current]) {
+    const neighbors = current in graph ? graph[current] : []
+
+    for (let neighbor of neighbors) {
       stack.push(neighbor)
     }
   }
