@@ -10,6 +10,7 @@ const graph = {
 }
 
 const breadthFirstTraversal = (graph, src) => {
+  const visited = new Set()
   const queue = new Queue(src)
   let str = ""
 
@@ -18,11 +19,14 @@ const breadthFirstTraversal = (graph, src) => {
     str += current + " "
 
     for (let neighbor of graph[current]) {
-      queue.enqueue(neighbor)
+      if (!visited.has(neighbor)) {
+        queue.enqueue(neighbor)
+        visited.add(neighbor)
+      }
     }
   }
 
   console.log(str)
 }
 
-breadthFirstTraversal(graph, "a")
+breadthFirstTraversal(graph, "a") // -> a c b e d f
