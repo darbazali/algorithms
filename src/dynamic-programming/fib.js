@@ -16,3 +16,11 @@ Solve this recursively.
 fib(46); // -> 1836311903
 
 */
+
+// brute-force approach
+const fibBruteForce = (n) => {
+  if (n === 0 || n === 1) return n
+  return fibBruteForce(n - 1) + fibBruteForce(n - 2)
+}
+
+console.log(fibBruteForce(46)) // -> 1836311903 in 17.073 seconds
