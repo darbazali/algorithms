@@ -23,4 +23,15 @@ const fibBruteForce = (n) => {
   return fibBruteForce(n - 1) + fibBruteForce(n - 2)
 }
 
-console.log(fibBruteForce(46)) // -> 1836311903 in 17.073 seconds
+// console.log(fibBruteForce(46)) // -> 1836311903 in 17.073 seconds
+
+// memoized
+const fib = (n, memo = {}) => {
+  if (n === 0 || n === 1) return n
+  if (n in memo) return memo[n]
+
+  memo[n] = fib(n - 1, memo) + fib(n - 2, memo)
+  return memo[n]
+}
+
+console.log(fib(46)) // -> 1836311903 in 0.056 seconds 99.67% faster
