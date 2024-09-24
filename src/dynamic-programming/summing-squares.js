@@ -19,3 +19,18 @@ Another way to make 12 is 9 + 1 + 1 + 1, but that requires four perfect squares.
 summingSquares(8); // -> 2
 
 */
+
+const summingSquares = (n) => {
+  if (n === 0) return 0
+
+  let minSquares = Infinity
+  for (let i = 1; i <= Math.sqrt(n); i++) {
+    const square = i * i
+    const numSquares = 1 + summingSquares(n - square)
+    minSquares = Math.min(minSquares, numSquares)
+  }
+
+  return minSquares
+}
+
+console.log(summingSquares(87)) // -> 4
