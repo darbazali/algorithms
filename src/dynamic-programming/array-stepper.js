@@ -31,3 +31,25 @@ arrayStepper([
 ]); // -> false
 
 */
+
+const arrayStepper = (numbers = [], i = 0) => {
+  if (i >= numbers.length - 1) return true
+
+  const maxStep = numbers[i]
+  for (let step = 1; step <= maxStep; step += 1) {
+    if (arrayStepper(numbers, i + step) === true) {
+      return true
+    }
+  }
+
+  return false
+}
+
+console.log(arrayStepper([2, 4, 2, 0, 0, 1])) // -> true
+console.log(arrayStepper([2, 3, 2, 0, 0, 1])) // -> false
+console.log(
+  arrayStepper([
+    31, 30, 29, 28, 27, 26, 25, 24, 23, 22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11,
+    10, 9, 8, 7, 6, 5, 3, 2, 1, 0, 0, 0,
+  ]),
+) // -> false
