@@ -14,3 +14,32 @@ quickestConcat('rongbetty', ['wrong', 'bet']); // -> -1
 quickestConcat('uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu', ['u', 'uu', 'uuu', 'uuuu', 'uuuuu']); // -> 7
 
 */
+
+const _quickestConcat = (s, words, memo = {}) => {
+  if (s in memo) return memo[s]
+  if (s === "") return 0
+
+  let minWords = Infinity
+  for (let word of words) {
+    if (s.startsWith(word)) {
+      const suffix = s.slice(word.length)
+      const attempt = 1 + _quickestConcat(suffix, words, memo)
+      minWords = Math.min(attempt, minWords)
+    }
+  }
+
+  memo[s] = minWords
+  return minWords
+}
+
+const quickestConcat = (s, words) => {
+  const result = _quickestConcat(s, words)
+  if (result === Infinity) return -1
+  return result
+}
+
+console.log(quickestConcat("caution", ["ca", "ion", "caut", "ut"])) // -> 2
+console.log(quickestConcat("rongbetty", ["wrong", "bet"])) // -> -1
+console.log(
+  quickestConcat("uuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu", ["u", "uu", "uuu", "uuuu", "uuuuu"]),
+) // -> 7
