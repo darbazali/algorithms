@@ -12,17 +12,22 @@ overlapSubsequence("dogs", "daogt"); // -> 3
 
 */
 
-const overlapSubsequence = (str1, str2, i = 0, j = 0) => {
+const overlapSubsequence = (str1, str2, i = 0, j = 0, memo = {}) => {
+  const key = i + "," + j
+  if (key in memo) return memo[key]
+
   if (i === str1.length || j === str2.length) return 0
 
   if (str1[i] === str2[j]) {
-    return 1 + overlapSubsequence(str1, str2, i + 1, j + 1)
+    memo[key] = 1 + overlapSubsequence(str1, str2, i + 1, j + 1, memo)
   } else {
-    return Math.max(
-      overlapSubsequence(str1, str2, i + 1, j),
-      overlapSubsequence(str1, str2, i, j + 1),
+    memo[key] = Math.max(
+      overlapSubsequence(str1, str2, i + 1, j, memo),
+      overlapSubsequence(str1, str2, i, j + 1, memo),
     )
   }
+
+  return memo[key]
 }
 
 console.log(overlapSubsequence("dogs", "daogt")) // -> 3
