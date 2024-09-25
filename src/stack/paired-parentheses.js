@@ -19,10 +19,8 @@ const pairedParentheses = (str = "") => {
 
   for (let char of str) {
     if (char === "(") count += 1
-    if (char === ")") {
-      if (count === 0) return false
-      count -= 1
-    }
+    if (char === ")") count -= 1
+    if (count < 0) return false
   }
 
   return count === 0
