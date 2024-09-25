@@ -11,3 +11,24 @@ canConcat("oneisnone", ["one", "none", "is"]); // -> true
 canConcat("oneisnone", ["on", "e", "is"]); // -> false
 
 */
+
+const canConcat = (s = "", words = []) => {
+  if (s === "") return true
+
+  for (let word of words) {
+    if (s.startsWith(word)) {
+      const suffix = s.slice(word.length)
+      if (canConcat(suffix, words)) {
+        return true
+      }
+    }
+  }
+
+  return false
+}
+
+console.log(canConcat("oneisnone", ["one", "none", "is"])) // -> true
+console.log(canConcat("oneisnone", ["on", "e", "is"])) // -> false
+console.log(
+  canConcat("rrrrrrrrrrrrrrrrrrrrrrrrrrx", ["r", "rr", "rrr", "rrrr", "rrrrr", "rrrrrr"]),
+) // -> false
