@@ -15,6 +15,8 @@ class Stack {
     return this.#items.pop()
   }
 
+  peek = () => this.#items[this.#items.length - 1]
+
   isEmpty = () => this.#items.length === 0
 }
 
