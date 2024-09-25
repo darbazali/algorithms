@@ -15,3 +15,5 @@ decompressBraces("3{al4{ec}2{icia}}");
  -> alececececiciaiciaalececececiciaiciaalececececiciaicia 
 
 */
+
+const isNumber = (char) => "123456789".includes(char)
