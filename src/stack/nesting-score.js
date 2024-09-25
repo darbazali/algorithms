@@ -17,3 +17,27 @@ nestingScore("[[][]][]"); // -> 5
 nestingScore(""); // -> 0
 
 */
+
+const nestingScore = (str) => {
+  const stack = [0]
+
+  for (let char of str) {
+    if (char === "[") {
+      stack.push(0)
+    } else {
+      const popped = stack.pop()
+      if (popped === 0) {
+        stack[stack.length - 1] += 1
+      } else {
+        stack[stack.length - 1] += 2 * popped
+      }
+    }
+  }
+
+  return stack[0]
+}
+
+console.log(nestingScore("[]")) // -> 1
+console.log(nestingScore("[][][]")) // -> 3
+console.log(nestingScore("[[][]][]")) // -> 5
+console.log(nestingScore("")) // -> 0
