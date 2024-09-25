@@ -17,3 +17,13 @@ decompressBraces("3{al4{ec}2{icia}}");
 */
 
 const isNumber = (char) => "123456789".includes(char)
+
+const repeatString = (str, n) => {
+  let result = ""
+
+  for (let i = 0; i < n; i += 1) {
+    result += str
+  }
+
+  return result
+}
