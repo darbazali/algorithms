@@ -27,3 +27,32 @@ const repeatString = (str, n) => {
 
   return result
 }
+
+const decompressBraces = (str) => {
+  const stack = []
+
+  for (let char of str) {
+    if (isNumber(char)) {
+      stack.push(Number(char))
+    } else {
+      if (char === "}") {
+        let segment = ""
+        while (typeof stack[stack.length - 1] !== "number") {
+          const popped = stack.pop()
+          segment = popped + segment
+        }
+        const num = stack.pop()
+        stack.push(repeatString(segment, num))
+      } else if (char !== "{") {
+        stack.push(char)
+      }
+    }
+  }
+
+  return stack.join("")
+}
+
+console.log(decompressBraces("2{q}3{tu}v")) // -> qqtututuv
+console.log(decompressBraces("ch3{ao}")) // -> chaoaoao
+console.log(decompressBraces("3{al4{ec}2{icia}}"))
+// -> alececececiciaiciaalececececiciaiciaalececececiciaicia
