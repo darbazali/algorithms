@@ -26,3 +26,36 @@ knightlyNumber(20, 12, 8, 3, 9, 14); // -> 98410127
 knightlyNumber(8, 2, 0, 0, 1, 1); // -> 0
 
 */
+
+const knightlyNumber = (n, m, kr, kc, pr, pc) => {
+  if (kr < 0 || kr >= n || kc < 0 || kc >= n) return 0
+
+  if (m === 0) {
+    if (kr === pr && kc === pc) return 1
+    return 0
+  }
+
+  const neighbors = [
+    [kr + 2, kc + 1],
+    [kr - 2, kc + 1],
+    [kr + 2, kc - 1],
+    [kr - 2, kc - 1],
+    [kr + 1, kc + 2],
+    [kr - 1, kc + 2],
+    [kr + 1, kc - 2],
+    [kr - 1, kc - 2],
+  ]
+
+  let count = 0
+  for (let neighbor of neighbors) {
+    const [neighborRow, neighborCol] = neighbor
+    count += knightlyNumber(n, m - 1, neighborRow, neighborCol, pr, pc)
+  }
+
+  return count
+}
+
+console.log(knightlyNumber(8, 2, 4, 4, 5, 5)) // -> 2
+console.log(knightlyNumber(8, 2, 7, 1, 7, 1)) // -> 3
+// console.log(knightlyNumber(20, 12, 8, 3, 9, 14)) // -> 98410127
+console.log(knightlyNumber(8, 2, 0, 0, 1, 1)) // -> 0
