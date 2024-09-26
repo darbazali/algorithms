@@ -21,3 +21,21 @@ subsets([]); // ->
  ]
 
 */
+
+const subsets = (elements = []) => {
+  if (elements.length === 0) return [[]]
+
+  const first = elements[0]
+  const subsetsWithoutFirst = subsets(elements.slice(1))
+
+  const subsetsWithFirst = []
+  for (let sub of subsetsWithoutFirst) {
+    subsetsWithFirst.push([first, ...sub])
+  }
+
+  return [...subsetsWithoutFirst, ...subsetsWithFirst]
+}
+
+console.log(subsets(["a", "b"])) // -> [ [], [ 'b' ], [ 'a' ], [ 'a', 'b' ] ]
+console.log(subsets(["b"])) // -> [ [], [ 'b' ] ]
+console.log(subsets([])) // -> [ [] ]
