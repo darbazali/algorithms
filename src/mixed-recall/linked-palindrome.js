@@ -23,6 +23,9 @@ e.next = f;
  3 -> 2 -> 7 -> 7 -> 2 -> 3
 linkedPalindrome(a); // true
 
+@complexity
+Time: O(2n) -> O(n)
+Space: O(n)
 */
 
 import Node from "../linkedList/linked-list-node.js"
@@ -40,8 +43,6 @@ const linkedPalindrome = (head) => {
 }
 
 const isArrayPalindrome = (arr = []) => {
-  if (arr.length === 0) return true
-
   let left = 0
   let right = arr.length - 1
 
