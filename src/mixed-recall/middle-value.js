@@ -26,6 +26,7 @@ middleValue(a); // c
 
 import Node from "../linkedList/linked-list-node.js"
 
+// O(n) time, O(n) space
 const middleValue = (head) => {
   const values = []
   let current = head
@@ -37,6 +38,19 @@ const middleValue = (head) => {
 
   const mid = Math.floor(values.length / 2)
   return values[mid]
+}
+
+// Middle value using two pointers: O(n) time, O(1) space
+const middleValueWithTwoPointers = (head) => {
+  let fast = head
+  let slow = head
+
+  while (fast !== null && fast.next !== null) {
+    slow = slow.next
+    fast = fast.next.next
+  }
+
+  return slow.value
 }
 
 const a = new Node("a")
@@ -51,4 +65,4 @@ c.next = d
 d.next = e
 
 // a -> b -> c -> d -> e
-console.log(middleValue(a)) // -> c
+console.log(middleValueWithTwoPointers(a)) // -> c
