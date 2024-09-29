@@ -16,17 +16,28 @@ parentheticalPossibilities("(qr)ab(stu)c"); // -> [ 'qabsc', 'qabtc', 'qabuc', '
 const getChoices = (s = "") => {
   if (s[0] === "(") {
     const end = s.indexOf(")")
-    const choice = s.slice(1, end)
+    const choices = s.slice(1, end)
     const remainder = s.slice(end + 1)
-    return { choice, remainder }
+    return { choices, remainder }
   }
 
-  return { choice: s[0], remainder: s.slice(1) }
+  return { choices: s[0], remainder: s.slice(1) }
 }
 
 const parentheticalPossibilities = (s = "") => {
   if (s.length === 0) return [""]
   const allPossibilities = []
 
+  const { choices, remainder } = getChoices(s)
+  for (let choice of choices) {
+    const remainderPossibilities = parentheticalPossibilities(remainder)
+    for (let substring of remainderPossibilities) {
+      allPossibilities.push(choice + substring)
+    }
+  }
+
   return allPossibilities
 }
+
+console.log(parentheticalPossibilities("x(mn)yz"))
+console.log(parentheticalPossibilities("(qr)ab(stu)c"))
