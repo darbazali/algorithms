@@ -12,3 +12,10 @@ parentheticalPossibilities('x(mn)yz'); // ->  [ 'xmyz', 'xnyz' ]
 parentheticalPossibilities("(qr)ab(stu)c"); // -> [ 'qabsc', 'qabtc', 'qabuc', 'rabsc', 'rabtc', 'rabuc' ]
 
 */
+
+const parentheticalPossibilities = (s = "") => {
+  if (s.length === 0) return [""]
+  const allPossibilities = []
+
+  return allPossibilities
+}
