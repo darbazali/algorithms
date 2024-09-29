@@ -40,6 +40,22 @@ const linkedListCycle = (head) => {
   return false
 }
 
+// Using two pointers
+const linkedListCycleWithTwoPointers = (head) => {
+  let fast = head
+  let slow = head
+  let firstIteration = true
+
+  while (fast !== null && fast.next !== null) {
+    if (fast === slow && !firstIteration) return true
+    fast = fast.next.next
+    slow = slow.next
+    firstIteration = false
+  }
+
+  return false
+}
+
 const a = new Node("a")
 const b = new Node("b")
 const c = new Node("c")
@@ -54,4 +70,4 @@ d.next = b // cycle
 //       /        \
 // a -> b -> c -> d
 
-console.log(linkedListCycle(a)) // true
+console.log(linkedListCycleWithTwoPointers(a)) // true
