@@ -23,3 +23,35 @@ a -> b -> c -> d
 linkedListCycle(a);  // true
 
 */
+
+import Node from "../linkedList/linked-list-node.js"
+
+// using a set to keep track of visited nodes
+const linkedListCycle = (head) => {
+  const visited = new Set()
+  let current = head
+
+  while (current !== null) {
+    if (visited.has(current.value)) return true
+    visited.add(current.value)
+    current = current.next
+  }
+
+  return false
+}
+
+const a = new Node("a")
+const b = new Node("b")
+const c = new Node("c")
+const d = new Node("d")
+
+a.next = b
+b.next = c
+c.next = d
+d.next = b // cycle
+
+//         _______
+//       /        \
+// a -> b -> c -> d
+
+console.log(linkedListCycle(a)) // true
