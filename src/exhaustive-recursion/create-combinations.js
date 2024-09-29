@@ -16,3 +16,21 @@ createCombinations(["a", "b", "c"], 2); // ->
  ]
 
 */
+
+const createCombinations = (items = [], k = 0) => {
+  if (items.length < k) return []
+  if (k === 0) return [[]]
+
+  const first = items[0]
+  const combosWithFirst = []
+  const partialCombos = createCombinations(items.slice(1), k - 1)
+
+  for (let combo of partialCombos) {
+    combosWithFirst.push([first, ...combo])
+  }
+
+  const combosWithoutFirst = createCombinations(items.slice(1), k)
+  return [...combosWithFirst, ...combosWithoutFirst]
+}
+
+console.log(createCombinations(["a", "b", "c"], 2)) // -> [ [ 'a', 'b' ], [ 'a', 'c' ], [ 'b', 'c' ] ]
