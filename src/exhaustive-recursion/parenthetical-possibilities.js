@@ -13,6 +13,17 @@ parentheticalPossibilities("(qr)ab(stu)c"); // -> [ 'qabsc', 'qabtc', 'qabuc', '
 
 */
 
+const getChoices = (s = "") => {
+  if (s[0] === "(") {
+    const end = s.indexOf(")")
+    const choice = s.slice(1, end)
+    const remainder = s.slice(end + 1)
+    return { choice, remainder }
+  }
+
+  return { choice: s[0], remainder: s.slice(1) }
+}
+
 const parentheticalPossibilities = (s = "") => {
   if (s.length === 0) return [""]
   const allPossibilities = []
