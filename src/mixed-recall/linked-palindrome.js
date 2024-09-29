@@ -36,7 +36,22 @@ const linkedPalindrome = (head) => {
     current = current.next
   }
 
-  return values.join(",") === values.reverse().join(",")
+  return isArrayPalindrome(values)
+}
+
+const isArrayPalindrome = (arr = []) => {
+  if (arr.length === 0) return true
+
+  let left = 0
+  let right = arr.length - 1
+
+  while (left < right) {
+    if (arr[left] !== arr[right]) return false
+    left++
+    right--
+  }
+
+  return true
 }
 
 const a = new Node(3)
