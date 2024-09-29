@@ -24,3 +24,32 @@ e.next = f;
 linkedPalindrome(a); // true
 
 */
+
+import Node from "../linkedList/linked-list-node.js"
+
+const linkedPalindrome = (head) => {
+  const values = []
+  let current = head
+
+  while (current !== null) {
+    values.push(current.value)
+    current = current.next
+  }
+
+  return values.join(",") === values.reverse().join(",")
+}
+
+const a = new Node(3)
+const b = new Node(2)
+const c = new Node(7)
+const d = new Node(7)
+const e = new Node(2)
+const f = new Node(3)
+
+a.next = b
+b.next = c
+c.next = d
+d.next = e
+e.next = f
+
+console.log(linkedPalindrome(a))
