@@ -26,3 +26,25 @@ const mergeSort = (arr = []) => {
 
   return merge(sortedLeft, sortedRight)
 }
+
+const merge = (arr1, arr2) => {
+  arr1.reverse()
+  arr2.reverse()
+  const merged = []
+
+  while (arr1.length > 0 && arr2.length > 0) {
+    if (arr1[arr1.length - 1] < arr2[arr2.length - 1]) {
+      merged.push(arr1.pop())
+    } else {
+      merged.push(arr2.pop())
+    }
+  }
+
+  merged.push(...arr1.reverse())
+  merged.push(...arr2.reverse())
+
+  return merged
+}
+
+const numbers = [10, 4, 42, 5, 8, 100, 5, 6, 12, 40]
+console.log(mergeSort(numbers))
