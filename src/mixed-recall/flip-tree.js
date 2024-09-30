@@ -43,3 +43,14 @@ flipTree(a);
     h    g
 
 */
+
+const flipTree = (root) => {
+  if (root === null) return null
+
+  const left = flipTree(root.left)
+  const right = flipTree(root.right)
+  root.right = left
+  root.left = right
+
+  return root
+}
