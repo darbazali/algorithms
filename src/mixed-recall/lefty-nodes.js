@@ -37,3 +37,16 @@ e.right = h;
 leftyNodes(a);  // [ 'a', 'b', 'd', 'g' ]
 
 */
+
+const leftyNodes = (root, level = 0, values = []) => {
+  if (root === null) return []
+
+  if (values.length === level) {
+    values.push(root.value)
+  }
+
+  leftyNodes(root.left, level + 1, values)
+  leftyNodes(root.right, level + 1, values)
+
+  return values
+}
