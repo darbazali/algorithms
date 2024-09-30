@@ -89,6 +89,14 @@ c.right = f
 e.left = g
 e.right = h
 
+//      a
+//    /    \
+//   b      c
+//  / \      \
+// d   e      f
+//    / \
+//    g  h
+
 console.log(lowestCommonAncestor(a, "d", "h")) // b
 console.log(lowestCommonAncestor(a, "d", "g")) // b
 console.log(lowestCommonAncestor(a, "g", "c")) // a
