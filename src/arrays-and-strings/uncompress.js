@@ -15,3 +15,12 @@ uncompress("4s2b"); // -> 'ssssbb'
 uncompress("3n12e2z"); // -> 'nnneeeeeeeeeeeezz'
 
 */
+
+const repeatString = (str, n) => {
+  let result = []
+  for (let i = 0; i < n; i++) {
+    result.push(str)
+  }
+
+  return result.join("")
+}
