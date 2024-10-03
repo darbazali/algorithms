@@ -17,3 +17,30 @@ compress('ssssbbz'); // -> '4s2bz'
 compress('nnneeeeeeeeeeeezz'); // -> '3n12e2z'
 
 */
+
+const compress = (str = "") => {
+  let result = ""
+  let i = 0
+  let j = 0
+
+  while (j <= str.length) {
+    if (str[j] === str[i]) {
+      j += 1
+    } else {
+      const num = j - i
+      if (num === 1) {
+        result += str[i]
+      } else {
+        result += `${num}${str[i]}`
+      }
+
+      i = j
+    }
+  }
+
+  return result
+}
+
+console.log(compress("ccaaatsss")) // -> '2c3at3s'
+console.log(compress("ssssbbz")) // -> '4s2bz'
+console.log(compress("nnneeeeeeeeeeeezz")) // -> '3n12e2z'
