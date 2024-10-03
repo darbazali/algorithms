@@ -17,16 +17,17 @@ uncompress("3n12e2z"); // -> 'nnneeeeeeeeeeeezz'
 */
 
 const repeatString = (str, n) => {
-  let result = []
+  let result = ""
+
   for (let i = 0; i < n; i++) {
-    result.push(str)
+    result += str
   }
 
-  return result.join("")
+  return result
 }
 
 const uncompress = (str = "") => {
-  let result = ""
+  let result = []
   let i = 0
   let j = 0
 
@@ -36,13 +37,13 @@ const uncompress = (str = "") => {
       j += 1
     } else {
       const num = Number(str.slice(i, j))
-      result += repeatString(char, num)
+      result.push(repeatString(char, num))
       j += 1
       i = j
     }
   }
 
-  return result
+  return result.join("")
 }
 
 console.log(uncompress("2c3a1t")) // -> 'ccaaat'
