@@ -16,16 +16,6 @@ uncompress("3n12e2z"); // -> 'nnneeeeeeeeeeeezz'
 
 */
 
-const repeatString = (str, n) => {
-  let result = ""
-
-  for (let i = 0; i < n; i++) {
-    result += str
-  }
-
-  return result
-}
-
 const uncompress = (str = "") => {
   let result = []
   let i = 0
@@ -37,7 +27,7 @@ const uncompress = (str = "") => {
       j += 1
     } else {
       const num = Number(str.slice(i, j))
-      result.push(repeatString(char, num))
+      result.push(char.repeat(num))
       j += 1
       i = j
     }
