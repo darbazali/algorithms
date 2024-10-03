@@ -14,3 +14,28 @@ mostFrequentChar('david'); // -> 'd'
 mostFrequentChar('potato'); // -> 'o'
 
 */
+
+const mostFrequentChar = (s = "") => {
+  const count = {}
+
+  for (let char of s) {
+    if (!(char in count)) {
+      count[char] = 0
+    }
+
+    count[char] += 1
+  }
+
+  let best = ""
+  for (let char of s) {
+    if (best === "" || count[char] > count[best]) {
+      best = char
+    }
+  }
+
+  return best
+}
+
+console.log(mostFrequentChar("bookeeper")) // -> 'e'
+console.log(mostFrequentChar("david")) // -> 'd'
+console.log(mostFrequentChar("potato")) // -> 'o'
