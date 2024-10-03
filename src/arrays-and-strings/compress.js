@@ -19,7 +19,7 @@ compress('nnneeeeeeeeeeeezz'); // -> '3n12e2z'
 */
 
 const compress = (str = "") => {
-  let result = ""
+  let result = []
   let i = 0
   let j = 0
 
@@ -29,16 +29,16 @@ const compress = (str = "") => {
     } else {
       const num = j - i
       if (num === 1) {
-        result += str[i]
+        result.push(str[i])
       } else {
-        result += `${num}${str[i]}`
+        result.push(`${num}${str[i]}`)
       }
 
       i = j
     }
   }
 
-  return result
+  return result.join("")
 }
 
 console.log(compress("ccaaatsss")) // -> '2c3at3s'
