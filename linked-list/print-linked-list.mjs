@@ -1,15 +1,4 @@
-import Node from "./linked-list-node.mjs"
-
-const a = new Node("A")
-const b = new Node("B")
-const c = new Node("C")
-const d = new Node("D")
-const e = new Node("E")
-
-a.next = b
-b.next = c
-c.next = d
-d.next = e
+import linkedList from "./linked-list-example.mjs"
 
 const printLinkedList = (head) => {
   let current = head
@@ -20,4 +9,4 @@ const printLinkedList = (head) => {
   }
 }
 
-printLinkedList(a) // -> A B C D E
+printLinkedList(linkedList) // -> A B C D E
