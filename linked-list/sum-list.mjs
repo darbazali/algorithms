@@ -37,6 +37,11 @@ const sumList = (head) => {
   return sum
 }
 
+const sumListRecursive = (head) => {
+  if (head === null) return 0
+  return head.val + sumListRecursive(head.next)
+}
+
 const a = new Node(2)
 const b = new Node(8)
 const c = new Node(3)
@@ -48,4 +53,4 @@ b.next = c
 c.next = d
 d.next = e
 
-console.log(sumList(a)) // -> 19
+console.log(sumListRecursive(a)) // -> 19
