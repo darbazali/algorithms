@@ -23,3 +23,19 @@ a -> b -> c -> d -> e -> f
 reverseList(a); // f -> e -> d -> c -> b -> a
 
 */
+
+import Node from "./linked-list-node.mjs"
+
+const reverseList = (head) => {
+  let prev = null
+  let current = head
+
+  while (current !== null) {
+    const next = current.next
+    current.next = prev
+    prev = current
+    current = next
+  }
+
+  return prev
+}
