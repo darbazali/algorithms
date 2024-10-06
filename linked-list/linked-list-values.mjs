@@ -20,3 +20,19 @@ a -> b -> c -> d
 linkedListValues(a); // -> [ 'a', 'b', 'c', 'd' ]
 
 */
+
+import linkedList from "./linked-list-example.mjs"
+
+const linkedListValues = (head) => {
+  const values = []
+  let current = head
+
+  while (current !== null) {
+    values.push(current.val)
+    current = current.next
+  }
+
+  return values
+}
+
+console.log(linkedListValues(linkedList)) // -> [ 'A', 'B', 'C', 'D', 'E' ]
