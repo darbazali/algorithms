@@ -39,3 +39,10 @@ const reverseList = (head) => {
 
   return prev
 }
+
+const reverseListRecursive = (head, prev = null) => {
+  if (head === null) return prev
+  const next = head.next
+  head.next = prev
+  return reverseListRecursive(next, head)
+}
