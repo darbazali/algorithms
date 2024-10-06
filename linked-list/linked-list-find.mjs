@@ -35,6 +35,12 @@ const linkedListFind = (head, target) => {
   return false
 }
 
+const linkedListFindRecursive = (head, target) => {
+  if (head === null) return false
+  if (head.val === target) return true
+  return linkedListFindRecursive(head.next, target)
+}
+
 const a = new Node("a")
 const b = new Node("b")
 const c = new Node("c")
@@ -46,5 +52,5 @@ c.next = d
 
 // a -> b -> c -> d
 
-console.log(linkedListFind(a, "c")) // true
-console.log(linkedListFind(a, "e")) // false
+console.log(linkedListFindRecursive(a, "c")) // true
+console.log(linkedListFindRecursive(a, "e")) // false
