@@ -22,3 +22,29 @@ a -> b -> c -> d
 getNodeValue(a, 2); // 'c'
 
 */
+
+import Node from "./linked-list-node.mjs"
+
+const getNodeValue = (head, index) => {
+  let count = 0
+  let current = head
+
+  while (current !== null) {
+    if (count === index) return current.val
+    current = current.next
+    count += 1
+  }
+
+  return null
+}
+
+const a = new Node("a")
+const b = new Node("b")
+const c = new Node("c")
+const d = new Node("d")
+
+a.next = b
+b.next = c
+c.next = d
+
+console.log(getNodeValue(a, 2)) // -> 'c'
