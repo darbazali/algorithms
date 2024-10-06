@@ -9,4 +9,10 @@ const printLinkedList = (head) => {
   }
 }
 
+const printLinkedListRecursive = (head) => {
+  if (head === null) return
+  console.log(head.val)
+  printLinkedListRecursive(head.next)
+}
+
 printLinkedList(linkedList) // -> A B C D E
