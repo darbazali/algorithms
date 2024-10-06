@@ -38,6 +38,12 @@ const getNodeValue = (head, index) => {
   return null
 }
 
+const getNodeValueRecursive = (head, index, count = 0) => {
+  if (head === null) return null
+  if (count === index) return head.val
+  return getNodeValueRecursive(head.next, index, count + 1)
+}
+
 const a = new Node("a")
 const b = new Node("b")
 const c = new Node("c")
@@ -47,4 +53,5 @@ a.next = b
 b.next = c
 c.next = d
 
-console.log(getNodeValue(a, 2)) // -> 'c'
+console.log(getNodeValueRecursive(a, 2)) // -> 'c'
+console.log(getNodeValueRecursive(a, 5)) // -> null
