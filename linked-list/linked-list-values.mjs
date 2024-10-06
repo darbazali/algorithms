@@ -35,4 +35,16 @@ const linkedListValues = (head) => {
   return values
 }
 
-console.log(linkedListValues(linkedList)) // -> [ 'A', 'B', 'C', 'D', 'E' ]
+const linkedListValuesRecursive = (head) => {
+  const values = []
+  fillValues(head, values)
+  return values
+}
+
+const fillValues = (head, values) => {
+  if (head === null) return
+  values.push(head.val)
+  fillValues(head.next, values)
+}
+
+console.log(linkedListValuesRecursive(linkedList)) // -> [ 'A', 'B', 'C', 'D', 'E' ]
