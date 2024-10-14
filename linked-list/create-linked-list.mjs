@@ -10,3 +10,17 @@ The function should return the head of the linked list.
 createLinkedList(["h", "e", "y"]); // h -> e -> y
 
 */
+import Node from "./linked-list-node.mjs"
+
+const createLinkedList = (values = []) => {
+  const dummyHead = new Node(null)
+  let tail = dummyHead
+
+  for (let item of values) {
+    const node = new Node(item)
+    tail.next = node
+    tail = tail.next
+  }
+
+  return dummyHead.next
+}
