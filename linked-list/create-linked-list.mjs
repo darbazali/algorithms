@@ -24,3 +24,10 @@ const createLinkedList = (values = []) => {
 
   return dummyHead.next
 }
+
+const createLinkedListRecursive = (values = [], i = 0) => {
+  if (i === values.length) return null
+  const head = new Node(values[i])
+  head.next = createLinkedListRecursive(values, i + 1)
+  return head
+}
