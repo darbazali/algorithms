@@ -24,3 +24,27 @@ e.next = f;
 longestStreak(a); // 3
 
 */
+
+const longestStreak = (head) => {
+  let maxStreak = 0
+  let currentStreak = 0
+  let prevVal = null
+  let currentNode = head
+
+  while (currentNode !== null) {
+    if (currentNode.val === prevVal) {
+      currentStreak += 1
+    } else {
+      currentStreak = 1
+    }
+
+    if (currentStreak > maxStreak) {
+      maxStreak = currentStreak
+    }
+
+    prevVal = currentNode.val
+    currentNode = currentNode.next
+  }
+
+  return maxStreak
+}
