@@ -30,3 +30,18 @@ c.right = f;
 treeMinValue(a); // -> -2
 
 */
+
+const treeMinValue = (root) => {
+  const stack = [root]
+  let min = Infinity
+
+  while (stack.length > 0) {
+    const current = stack.pop()
+    if (current.val < min) min = current.val
+
+    if (current.right) stack.push(current.right)
+    if (current.left) stack.push(current.left)
+  }
+
+  return min
+}
