@@ -32,20 +32,29 @@ pathFinder(a, 'e'); // -> [ 'a', 'b', 'e' ]
 
 */
 
-const pathFinder = (root, target) => {
+const pathFinderHelper = (root, target) => {
   if (root === null) return null
   if (root.val === target) return [root.val]
 
-  const leftPaths = pathFinder(root.left, target)
-  const rightPaths = pathFinder(root.right, target)
+  const leftPaths = pathFinderHelper(root.left, target)
+  const rightPaths = pathFinderHelper(root.right, target)
 
   if (leftPaths !== null) {
-    return [root.val, ...leftPaths]
+    leftPaths.push(root.val)
+    return leftPaths
   }
 
   if (rightPaths !== null) {
-    return [root.val, ...rightPaths]
+    rightPaths.push(root.val)
+    return rightPaths
   }
 
   return null
+}
+
+const pathFinder = (root, target) => {
+  const paths = pathFinderHelper(root, target)
+
+  if (paths === null) return null
+  return paths.reverse()
 }
