@@ -31,3 +31,21 @@ c.right = f;
 pathFinder(a, 'e'); // -> [ 'a', 'b', 'e' ]
 
 */
+
+const pathFinder = (root, target) => {
+  if (root === null) return null
+  if (root.val === target) return [root.val]
+
+  const leftPaths = pathFinder(root.left, target)
+  const rightPaths = pathFinder(root.right, target)
+
+  if (leftPaths !== null) {
+    return [root.val, ...leftPaths]
+  }
+
+  if (rightPaths !== null) {
+    return [root.val, ...rightPaths]
+  }
+
+  return null
+}
