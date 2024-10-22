@@ -30,3 +30,13 @@ c.right = f;
 bottomRightValue(a); // -> 1
 
 */
+
+const bottomRightValue = (root) => {
+  const queue = [root]
+  while (queue.length > 0) {
+    const current = queue.shift()
+    if (current.left) queue.push(current.left)
+    if (current.right) queue.push(current.right)
+    if (queue.length === 0) return current.val
+  }
+}
