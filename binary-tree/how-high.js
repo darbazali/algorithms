@@ -32,3 +32,10 @@ c.right = f;
 howHigh(a); // -> 2
 
 */
+
+const howHigh = (root) => {
+  if (root === null) return -1
+  const left = howHigh(root.left)
+  const right = howHigh(root.right)
+  return 1 + Math.max(left, right)
+}
