@@ -39,3 +39,36 @@ allTreePaths(a);  ->
 
 
 */
+
+const isLeafNode = (node) => node.left === null && node.right === null
+
+const _allTreePaths = (root) => {
+  if (root === null) return []
+  if (isLeafNode(root)) return [[root.val]]
+
+  const allPaths = []
+
+  const leftPaths = _allTreePaths(root.left)
+  for (let path of leftPaths) {
+    path.push(root.val)
+    allPaths.push(path)
+  }
+
+  const rightPaths = _allTreePaths(root.right)
+  for (let path of rightPaths) {
+    path.push(root.val)
+    allPaths.push(path)
+  }
+
+  return allPaths
+}
+
+const allTreePaths = (root) => {
+  const paths = _allTreePaths(root)
+
+  for (let path of paths) {
+    path.reverse()
+  }
+
+  return paths
+}
