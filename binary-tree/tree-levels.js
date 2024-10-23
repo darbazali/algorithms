@@ -33,3 +33,25 @@ treeLevels(a);  ->
  ]
 
 */
+
+const treeLevels = (root) => {
+  if (root === null) return []
+
+  const queue = [{ node: root, level: 0 }]
+  const levels = []
+
+  while (queue.length > 0) {
+    const { node, level } = queue.shift()
+
+    if (level === levels.length) {
+      levels[level] = [node.val]
+    } else {
+      levels[level].push(node.val)
+    }
+
+    if (node.left) queue.push({ node: node.left, level: level + 1 })
+    if (node.right) queue.push({ node: node.right, level: level + 1 })
+  }
+
+  return levels
+}
