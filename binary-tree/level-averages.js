@@ -28,3 +28,32 @@ c.right = f;
 levelAverages(a); // -> [ 3, 7.5, 1 ] 
 
 */
+
+const getAvg = (arr) => {
+  let sum = 0
+  for (let num of arr) {
+    sum += num
+  }
+  return sum / arr.length
+}
+
+const levelAverages = (root) => {
+  if (root === null) return []
+
+  const levels = []
+  const queue = [{ node: root, level: 0 }]
+
+  while (queue.length > 0) {
+    const { node, level } = queue.shift()
+    if (level === levels.length) {
+      levels[level] = [node.val]
+    } else {
+      levels[level].push(node.val)
+    }
+
+    if (node.right) queue.push({ node: node.right, level: level + 1 })
+    if (node.left) queue.push({ node: node.left, level: level + 1 })
+  }
+
+  return levels.map(getAvg)
+}
